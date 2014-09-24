@@ -93,7 +93,6 @@ gisportal.TimeLine = function(id, options) {
    // To lazy to go and rename everything "this.options.xxx"
    this.timebars = this.options.timebars;
    this.layerbars = this.timebars.filter(function(element, index, array) { return element.type == 'layer'; });
-   this.rangebars = this.timebars.filter(function(element, index, array) { return element.type == 'range'; });
    
    this.barHeight = this.options.barHeight;
    this.barMargin = this.options.barMargin;
@@ -138,7 +137,7 @@ gisportal.TimeLine = function(id, options) {
          return;
       }
       
-      var x = d3.mouse(this)[0];       
+      var x = d3.mouse(this)[0];
       
       // Prevent dragging the selector off-scale
       x = (x > self.xScale.range()[0] && x < self.xScale.range()[1]) ? x : (x - d3.event.layerX);
@@ -155,7 +154,7 @@ gisportal.TimeLine = function(id, options) {
    // Set up the SVG chart area within the specified div; handle mouse zooming with a callback.
    this.zoom = d3.behavior.zoom()
                 .x(this.xScale)
-              .on('zoom', function() { isDragging = true; console.log(self.xScale.domain()); self.redraw(); console.log("ZOOM-2!"); });
+              .on('zoom', function() { isDragging = true; self.redraw(); });
                  
 
    // Append the svg and add a class before attaching both events.
@@ -244,10 +243,9 @@ gisportal.TimeLine = function(id, options) {
 
 // Handle browser window resize event to dynamically scale the timeline chart along the x-axis
 gisportal.TimeLine.prototype.redraw = function() {
-   console.log("redraw");
    
    var self = this;  // Useful for when the scope/meaning of "this" changes
-   console.log('------ ' + this.xScale.domain());
+   
    // Recalculate the x and y scales before redraw
     this.xScale.range([0, this.width]);
    //this.xScale.domain([self.minDate, self.maxDate]).range([0, this.width]);
@@ -328,7 +326,7 @@ gisportal.TimeLine.prototype.redraw = function() {
             // Time Bar
             d3.select(this).selectAll('g').data(d1.dateTimes)  // <-- second level data-join
               .enter().append('svg:line')
-               .attr('stroke', '#fff')
+               .attr('stroke', '#59476D')
                .attr('y1', function() { return d3.round(self.yScale(i1) + self.barMargin + 1.5); })
                .attr('y2', function() { return d3.round(self.yScale(i1) + self.laneHeight - self.barMargin + 0.5); })
                .attr('class', 'detailLine');
@@ -336,39 +334,6 @@ gisportal.TimeLine.prototype.redraw = function() {
       });
       
    //--------------------------------------------------------------------------
-   this.rangeBarArea.selectAll('rect').remove(); // Dirty hack so that it forces functions 
-   this.rangeBarRectangles = this.rangeBarArea.selectAll('rect').data(this.rangebars, function(d) { return d.y; });
-   this.rangeBarRectangles.enter()
-        .append("svg:rect")
-          .attr("x", function(d, i) { 
-             var x = 0;
-             if (new Date(d.selectedStart) < new Date(d.selectedEnd))  {
-                x = d3.round(self.xScale(new Date(d.selectedStart)) + 0.5); 
-             }
-             else {
-                x = d3.round(self.xScale(new Date(d.selectedEnd)) + 0.5); 
-             }
-             return x;
-          })
-          .attr("y", function(d) { console.log("d.y: " + d.y); return d.y; })
-          .attr("width", function(d, i) { 
-             var width = 0;
-             if (new Date(d.selectedStart) < new Date(d.selectedEnd))  {
-               width = d3.round(self.xScale(new Date(d.selectedEnd)) - self.xScale(new Date(d.selectedStart))); 
-             }
-             else {
-               width = d3.round(self.xScale(new Date(d.selectedStart)) - self.xScale(new Date(d.selectedEnd))); 
-             }
-             return width;
-          })
-          .attr("height", function(d, i) { return d3.round(self.laneHeight); })
-          .style("fill", function(d,i) { return d.colour || self.colours(i); })
-          .attr('class', 'data-bar-type--range');
-
-   //--------------------------------------------------------------------------
-   
-   // Date detail removal at time bar level
-   this.rangeBarRectangles.exit().remove();
    
    // Date detail removal at time bar level
    this.dateDetails.exit().remove(); 
@@ -378,33 +343,6 @@ gisportal.TimeLine.prototype.redraw = function() {
       .attr('x1', function(d) { return d3.round(self.xScale(new Date(d)) + 0.5); })
       .attr('x2', function(d) { return d3.round(self.xScale(new Date(d)) + 0.5); });
       
-      
-   // Re-scale the x values for all rangebars
-   this.main.selectAll('.data-bar-type--range').data(this.rangebars).each(function(d) {
-      if(d.type == 'range' && d.selectedStart !== 0 && d.selectedEnd !== 0)  {
-         d3.select(this).attr('x', function(d, i) { 
-             var x = 0;
-             if (new Date(d.selectedStart) < new Date(d.selectedEnd))  {
-                x = d3.round(self.xScale(new Date(d.selectedStart)) + 0.5); 
-             }
-             else {
-                x = d3.round(self.xScale(new Date(d.selectedEnd)) + 0.5); 
-             }
-             return x;
-          })
-          .attr('width', function(d, i) { 
-             var width = 0;
-             if (new Date(d.selectedStart) < new Date(d.selectedEnd))  {
-               width = d3.round(self.xScale(new Date(d.selectedEnd)) - self.xScale(new Date(d.selectedStart))); 
-             }
-             else {
-               width = d3.round(self.xScale(new Date(d.selectedStart)) - self.xScale(new Date(d.selectedEnd))); 
-             }
-             return width;
-          });
-      }
-   });
-   
    // Draw the current date-time line
    this.nowLine
       .attr('x1', d3.round(this.xScale(self.now) + 0.5)).attr('y1', 0)
@@ -456,7 +394,12 @@ gisportal.TimeLine.prototype.drawLabels = function()  {
       // The 300 below is ARBITARY. In Firefox it can get massive
       // whereas in Chrome it is required occasionally. TO DO: fix.
       if (positionTop < barTop && barTop < 300 ) positionTop = barTop;
-      $('.js-timeline-labels').append('<li style="top: ' + positionTop + 'px">' + this.timebars[i].label + '</li>');
+      var id = this.timebars[i].id;
+
+      var label = $('.indicator-header[data-id="' + id +'"] > p').html();
+      if (!label || label === "") label =  this.timebars[i].label + ' - ' + gisportal.layers[id].tags.region; 
+      
+      $('.js-timeline-labels').append('<li data-id="' + id +'" style="top: ' + positionTop + 'px">' + label + '</li>');
    }
 };
 
@@ -495,9 +438,10 @@ gisportal.TimeLine.prototype.addTimeBarJSON = function(timeBar) {
 };
 
 // Add a new time bar using detailed parameters
-gisportal.TimeLine.prototype.addTimeBar = function(name, label, startDate, endDate, dateTimes) {
+gisportal.TimeLine.prototype.addTimeBar = function(name, id, label, startDate, endDate, dateTimes) {
    var newTimebar = {};
    newTimebar.name = name;
+   newTimebar.id = id;
    newTimebar.label = label;
    newTimebar.startDate = startDate;
    newTimebar.endDate = endDate;
@@ -510,7 +454,7 @@ gisportal.TimeLine.prototype.addTimeBar = function(name, label, startDate, endDa
    this.layerbars.push(newTimebar); 
 
    // TODO: Move asap. tidy up
-   if (Object.keys(gisportal.layers).length === 1 && (!gisportal.cache.state || !gisportal.cache.state.timeline))  {
+   if (gisportal.selectedLayers.length === 1 && (!gisportal.cache.state || !gisportal.cache.state.timeline))  {
       this.reHeight();
       // redraw is done in zoom
       var data = gisportal.timeline.layerbars[0];
@@ -536,7 +480,6 @@ gisportal.TimeLine.prototype.addRangeBar = function(name, callback) {
    newRangebar.isDragging = false; // Each bar needs to know if it is being modified so that it doesn't draw over over bars
    newRangebar.colour = '';
    this.timebars.push(newRangebar);
-   this.rangebars.push(newRangebar);
    
    this.reHeight();
    this.redraw(); 
@@ -549,7 +492,6 @@ gisportal.TimeLine.prototype.addRangeBarCopy = function(rangebar)  {
    if (rangebar.selectedStart) rangebar.selectedStart = new Date(rangebar.selectedStart);
 
    this.timebars.push(rangebar);
-   this.rangebars.push(rangebar);
 
    this.reHeight();
    this.redraw();
@@ -557,7 +499,6 @@ gisportal.TimeLine.prototype.addRangeBarCopy = function(rangebar)  {
 
 // Rename timebar
 gisportal.TimeLine.prototype.rename = function(name, label)  {
-   this.rangebars.filter(function(d) { return d.name == name; })[0].label = label;   
    this.timebars.filter(function(d) { return d.name == name; })[0].label = label;
    this.reHeight();
    this.redraw();
@@ -576,8 +517,8 @@ gisportal.TimeLine.prototype.removeTimeBarById = function(id)  {
    if (this.has(id))  {
       this.removeTimeBarByName(id);
    }
-   else if (gisportal.microLayers[id]) {
-      var name = gisportal.microLayers[id].name;
+   else if (gisportal.layers[id]) {
+      var name = gisportal.layers[id].name;
       if (this.has(name))  {
          this.removeTimeBarByName(name); 
       }
@@ -603,7 +544,6 @@ gisportal.TimeLine.prototype.removeTimeBarByName = function(name) {
    type = bar.type;
    
    if(type == 'layer') { removeByName(self.layerbars); }
-   else if (type == 'range') { removeByName(self.rangebars); }
    
    var temp = this.timebars;
    // Kludge to clear out the display
@@ -640,32 +580,4 @@ gisportal.TimeLine.prototype.showDate = function(date) {
 gisportal.TimeLine.prototype.getDate = function() {
    var selectedDate = new Date(this.selectedDate);
    return ((selectedDate instanceof Date) ? selectedDate : null);
-};
-
-gisportal.TimeLine.prototype.hideRange = function(name)  {
-   var self = this;
-   for (var i = 0; i < this.rangebars.length; i++)  {
-      var r = this.rangebars[i];
-      if (r.name == name)  {
-         self.hiddenRangebars.push(r);
-         self.removeTimeBarByName(name);
-      }
-   }
-};
- 
-gisportal.TimeLine.prototype.showRange = function(name)  {
-   var self = this;
-   var tmp = [];
-   $.each(this.hiddenRangebars, function(i, r) { 
-      if(r.name == name)  {
-         self.timebars.push(r);
-         self.rangebars.push(r);
-      }  
-      else {
-         tmp.push(r);
-      }
-   });
-   this.hiddenRangebars = tmp;
-   this.reHeight();
-   this.redraw();  
 };
