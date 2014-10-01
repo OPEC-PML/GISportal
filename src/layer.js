@@ -54,12 +54,12 @@ gisportal.layer = function(name, title, productAbstract, type, opts) {
       tags : null,
       options : null,
 
-      contactDetails: {},
+      providerDetails: {},
       offsetVectors: null
    };
    
    $.extend(true, this, this.defaults, opts);
-
+   //this.moreInfo = opts.moreInfo;
    // Used for sensor data from SOS, not tested as we have no sensor data
    this.sensorName = this.sensorName !== null ? this.sensorName.replace(/\s+/g, "") : null;
    this.sensorName = this.sensorName !== null ? this.sensorName.replace(/[\.,]+/g, "") : null;
@@ -210,9 +210,7 @@ gisportal.layer = function(name, title, productAbstract, type, opts) {
             layer.temporal = true;
             var datetimes = dimension.Value.split(',');           
             layer.DTCache = datetimes;
-            //layer.firstDate = gisportal.utils.displayDateString(datetimes[0]);
-            //layer.lastDate = gisportal.utils.displayDateString(datetimes[datetimes.length - 1]);
-         
+
          // Elevation dimension   
          } else if (value.Name.toLowerCase() == 'elevation') {
             layer.elevation = true;
@@ -309,7 +307,8 @@ gisportal.layer = function(name, title, productAbstract, type, opts) {
                  
          // Update map date cache now a new temporal layer has been added
          gisportal.refreshDateCache();
-         $('#viewDate').datepicker("option", "defaultDate", new Date('dd-mm-yy', layer.lastDate));
+         
+         $('#viewDate').datepicker("option", "defaultDate", endDate);
 
          gisportal.zoomOverall();
       } else {
@@ -464,6 +463,10 @@ gisportal.layer = function(name, title, productAbstract, type, opts) {
       });
    };
 
+   this.cacheUrl = function(){
+     return portalLocation() + 'cache/layers/' + layer.serverName + '_' + layer.origName + '.json'
+   }
+
    /**
     * This function creates an Open Layers layer, such as a WMS Layer.
     * These are stored in layer.openlayers. Currently the implementation
@@ -565,8 +568,6 @@ gisportal.layer = function(name, title, productAbstract, type, opts) {
                }
                self.DTCache = times;
                self.WFSDatesToIDs = dateToIDLookup;
-               //layer.firstDate = gisportal.utils.displayDateString(datetimes[0].startdate);
-               //layer.lastDate = gisportal.utils.displayDateString(datetimes[datetimes.length - 1].startdate);
             }
          }
       }

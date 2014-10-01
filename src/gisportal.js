@@ -20,7 +20,7 @@ gisportal.VERSION = "0.4.0";
 //Initialise javascript variables and objects
 
 // Path to the python flask middleware
-gisportal.middlewarePath = '/service'; // <-- Change Path to match left hand side of WSGIScriptAlias
+gisportal.middlewarePath = window.location.origin + gisportal.config.paths.middlewarePath; // <-- Change Path to match left hand side of WSGIScriptAlias
 
 // Flask url paths, relates to /middleware/portalflask/views/
 gisportal.wcsLocation = gisportal.middlewarePath + '/wcs?';
@@ -117,6 +117,15 @@ gisportal.loadLayers = function() {
     
    // Get WMS cache
    gisportal.genericAsync('GET', './cache/mastercache.json', null, gisportal.initWMSlayers, errorHandling, 'json', {}); 
+   
+   $.ajax({
+      url:  './cache/providers.json',
+      dataType: 'json',
+      success: function( providers ){
+         gisportal.providers = providers;
+      }
+   });
+
    // Get WFS cache
    //gisportal.genericAsync('GET', './cache/wfsMasterCache.json', null, gisportal.initWFSLayers, errorHandling, 'json', {});
 };
@@ -296,9 +305,11 @@ gisportal.createOpLayers = function() {
                            "exBoundingBox": item.EX_GeographicBoundingBox, 
                            "providerTag": providerTag,
                            "positive" : positive, 
-                           "contactDetails" : item.ContactDetails, 
+                           "providerDetails" : item.ProviderDetails, 
                            "offsetVectors" : item.OffsetVectors, 
-                           "tags": item.tags
+                           "tags": item.tags,
+                           "moreProviderInfo" : item.MoreProviderInfo,
+                           "moreIndicatorInfo" : item.MoreIndicatorInfo,
                         }
                      );
                                
@@ -685,6 +696,8 @@ gisportal.loadState = function(state) {
       else indicator = gisportal.layers[keys[i]];
       if (indicator && !gisportal.selectedLayers[indicator.id]) {
          gisportal.configurePanel.close();
+//         console.log(indicator);
+
          gisportal.refinePanel.foundIndicator(indicator.id);
         
       }
@@ -981,7 +994,6 @@ gisportal.initStart = function()  {
       gisportal.loadState( gisportal.getAutoSaveState() );
       setInterval( gisportal.autoSaveState, 60000 );
    });
-
      
    $('.js-start').click(function()  {
       $('.start').toggleClass('hidden', true);
@@ -1047,6 +1059,7 @@ gisportal.loading.updateLoadingIcon = function(){
  * Sends all error to get sentry.
  */
 gisportal.startRemoteErrorLogging = function(){
+   
    $.getScript('//cdn.ravenjs.com/1.1.15/jquery,native/raven.min.js')
    .done(function(){
       Raven.config('https://552996d22b5b405783091fdc4aa3664a@app.getsentry.com/30024', {}).install();
@@ -1064,4 +1077,16 @@ gisportal.startRemoteErrorLogging = function(){
          Raven.captureException(e, { extra: extra} );
       };
    });
-}
+};
+
+/**
+ * Returns the currently location of portal including origin and path
+ * @return {[type]} [description]
+ */
+function portalLocation(){
+   var origin = location.origin;
+   var path = location.pathname;
+   var endSlash = path.lastIndexOf( '/' );
+   path = path.substring( 0, endSlash + 1 );
+   return origin + path;
+};

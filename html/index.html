@@ -89,7 +89,12 @@
          <div data-panel-name="choose-indicator" class="js-show-panel tab">Indicators</div>
          <div data-panel-name="active-layers" class="js-show-panel tab">Layers</div>
          
-         <span class="btn icon-arrow-left-1 icon-btn js-hide-panel panel-icon-tab"></button>
+         <div class="pull-right">
+           <div data-panel-name="history" class="js-show-panel tab ">
+            <span  class="icon-box-2"></span>     
+           </div>
+           <span class="btn icon-arrow-left-1 icon-btn js-hide-panel panel-icon-tab"></span>
+        </div>
       </div>
        
        
@@ -136,7 +141,7 @@
       
       <!-- Refine the chosen indicator by region/interval/etc..  -->
       <div id="refinePanel" data-panel-name="refine-indicator" class="panel-container indicator-select">
-	       <div class="panel-container-solid-backdrop">
+         <div class="panel-container-solid-backdrop">
             <div class="js-refine-section-region">
               Select a Region:
               <label for="refine-region" class="indicator-dropdown">
@@ -157,17 +162,6 @@
               <ul id="refine-interval" class=" fake-select panel-list grid-list">
               </ul>
            </div>
-           
-           <div class="js-refine-section-reliability">
-              Select a Reliability:
-              <label for="refine-reliability" class="indicator-dropdown">
-                 Reliability
-                 <span class="icon_arrow"></span>
-              </label>
-              <ul id="refine-reliability" class=" fake-select panel-list grid-list">
-              </ul>
-           </div>
-           
 
            <div class="js-refine-section-provider">
               Select a Provider:
@@ -178,10 +172,21 @@
               <ul id="refine-provider" class=" fake-select panel-list grid-list">
               </ul>
            </div>
+
+           <div class="js-refine-section-reliability">
+              Select a Reliability:
+              <label for="refine-reliability" class="indicator-dropdown">
+                 Reliability
+                 <span class="icon_arrow"></span>
+              </label>
+              <ul id="refine-reliability" class=" fake-select panel-list grid-list">
+              </ul>
+           </div>
+           
            
            <button class="js-reset-options hidden text-button" title="Reset">Reset</button>
            <button class="text-button js-refine-configure">Cancel</button>
-	      </div>
+        </div>
       </div>
       
       
@@ -191,18 +196,22 @@
          </ul>
       </div>
       
-      <!-- Graphing panel  -->
-      <div  id="graphPanel"  data-panel-name="graph" class="panel-container">
-         <div class="graph-wait-message">
-            <h3>Processing</h3>
-            <div class="icon_loading grid-cell icon-column">loading</div>
-            <p>Your chart is processing, keep this browser window open</p>
-            <p>If you are signed in, you can add charts to a queue and we'll notify you when they're processed</p>
-          </div>
 
-         <div class="graph-holder"></div>
+      <div id="historyPanel" data-panel-name="history" class="panel-container" >
+        <div class="half" style="display: none;">
+          <h3>Saved States</h3>
+          <div class="js-states-saved-list"></div>
+        </div>
+        <div  class="half" >
+          <h3>Graphs</h3>
+          <div>
+            <div class="js-graphs-saved-list" ></div>
+            <div class="js-graphs-history-list" ></div>
+          </div>
+        </div>
       </div>
       
+
       <div class="panel-footer">
            <label for="share-map">Share this map with colleagues</label>
            <button id="share-map" class="js-share brand secondary">
@@ -210,19 +219,42 @@
               Share
           </button>
       </div>
-   
 
-      <!-- Slideout example -->
-      <div class="panel-slideout" data-slideout-name="example">
-        <div class="panel-slideout-content js-slideout-content">
-          <!-- Slideout contents should go here -->
-          <button class="js-slideout-close">Close</button>
-          <button class="js-slideout-peak">Peak</button>
+
+      <div class="panel-slideout js-active-plot-slideout active-plot-slideout" data-slideout-name="active-plot" data-slideout-override-action="peak">
+        <div class="slideout-pulltab js-slideout-pulltab-toggle-peak"></div>
+        <div class="panel-slideout-content-wrapper">
+          <div class=" panel-slideout-content js-slideout-content"></div>
+        </div>
+      </div>
+
+
+      <div class="panel-slideout js-export-raw-slideout" data-slideout-name="export-raw" data-slideout-override-action="hide">
+        <div class="panel-slideout-content-wrapper">
+          <div class=" panel-slideout-content js-slideout-content"></div>
+        </div>
+      </div>
+
+      <!-- Slideout metadata -->
+      <div class="panel-slideout" data-slideout-name="metadata" data-slideout-override-action="hide">
+        <div class="panel-slideout-content-wrapper">
+          <div class="panel-slideout-content js-slideout-content">
+            <!-- Slideout contents should go here -->
+            <div class="metadata-slideout">
+            <div class="slideout-header">
+              More Information
+              <span class="btn icon-arrow-delete-1 icon-btn js-slideout-close panel-icon-tab right-icon js-close-extrainfo"></span>
+
+            </div>
+            
+              <div class="metadata-box metadata_indicator"></div>
+              <div class="metadata-box metadata_provider"></div>
+            </div>
+          </div>
         </div>
       </div>
    </div>
    
-
    <!-- The share box. -->
     <div class="share overlay hidden">
       <div class="share-container overlay-container">
@@ -234,24 +266,6 @@
             <input class="js-shareurl" placeholder="Loading...">
          </div>
          <div class="js-logged-out hidden"></div>
-      </div>
-    </div>
-
-    <div class="panel hidden">
-      <div class="panel-header">
-        <button class="js-return-analysis text-button back-button">Return to Analysis</button>
-      </div>
-      <div  id="graphPanel" class="panel-container">
-         <div class="graph-wait-message">
-            <h3>Processing</h3>
-            <div class="icon_loading grid-cell icon-column">loading</div>
-            <p>Your chart is processing, keep this browser window open</p>
-            <p>If you are signed in, you can add charts to a queue and we'll notify you when they're processed</p>
-          </div>
-
-         <div class="graph-holder"></div>
-        <!--<label for="share-map">Share this graph with colleagues</label>
-        <button id="share-map" class="js-share">Share</button> -->
       </div>
     </div>
 
