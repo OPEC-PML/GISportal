@@ -1,0 +1,8 @@
+**Mixed layer depth:** This indicator provides information on the
+penetration of ocean mixing. The mixed layer is the oceanic surface zone
+that most strongly influences oceanatmospheric interactions and has a
+strong impact on climate regulation.
+
+
+
+
