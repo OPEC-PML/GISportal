@@ -152,7 +152,7 @@ gisportal.graphs.Plot =(function(){
    Plot.prototype.buildRequestAxis = function( plotRequest ){
 
       var xAxis =  {
-         "label" : "Sample Date/Time",
+         "label" : "Date/Time",
          "ticks" : "auto",
          "weight" : "auto",
          "tickFormat" : this.plotType() == "timeseries" ? "%d/%m/%Y" : ",.2f"
@@ -225,6 +225,7 @@ gisportal.graphs.Plot =(function(){
    }
 
    Plot.prototype.buildRequestDataTimeSeries = function( seriesArray ){
+      var totalCount = 1;
       for( var i = 0; i < this._components.length; i++ ){
          var component = this._components[ i ];
          var indicator = gisportal.layers[ component.indicator ];
@@ -233,7 +234,7 @@ gisportal.graphs.Plot =(function(){
          var showByDefault = 'mean';
          var sub_series = [ 'std', 'min', 'max', 'median', 'mean' ].map(function( metric ){
             return {
-               "label" : indicator.displayTitle + " " + metric,
+               "label" : (totalCount++) + ') ' + indicator.title + " " + metric ,
                "key"  : metric,
                "yAxis": component.yAxis,
                "type": "line",
