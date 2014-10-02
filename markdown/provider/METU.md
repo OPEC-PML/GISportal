@@ -12,7 +12,7 @@ The Black Sea is one of the major semi-enclosed seas of the world oceans and has
 
 **Simulation period:** 1990-2013
 
-**Models used:** POM-BIMS_ECO
+**Models used:** <a href="/resources/Modelling_in_the_Black_Sea.pdf" target="_blank">POM-BIMS_ECO</a>
 
 
 

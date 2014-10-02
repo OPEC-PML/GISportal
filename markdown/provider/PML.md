@@ -13,7 +13,7 @@ The applied North East Atlantic region spans the area from 40&deg; to 65&deg; No
 
 **Simulation period:** 1990-2013
 
-**Models used:** POLCOMS-ERSEM
+**Models used:** <a href="/resources/Modelling_in_the_NE_Atlantic.pdf" target="_blank">POLCOMS-ERSEM</a>
 
 
 

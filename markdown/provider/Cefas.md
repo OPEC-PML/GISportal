@@ -13,7 +13,7 @@ of the North-Sea.
 
 **Simulation period:** 1991-2013
 
-**Models used:** POLCOMS-ERSEM-Ecospace - Cefas North Sea Model
+**Models used:** <a href="/resources/Modelling_in_the_NE_Atlantic.pdf" target="_blank">POLCOMS-ERSEM-Ecospace - Cefas North Sea Model</a>
 
 
 
