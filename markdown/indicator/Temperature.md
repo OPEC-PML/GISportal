@@ -1,11 +1,1 @@
-**Temperature:** This provides information on the temperature of the ocean
-layers closest to the surface. It has a considerable influence on
-weather, climate patterns, ocean circulation and biological growth.
-Changes in sea surface temperature are often an indicator for marine
-environmental change, since change in the habitat of marine organisms
-may result. In the models, the temperature is derived from a physical
-model of ocean circulation driven by the atmospheric heat fluxes.
-
-
-
-
+**Temperature:** This provides information on the temperature of the ocean layers closest to the surface. It has a considerable influence on weather, climate patterns, ocean circulation and biological growth. Changes in sea surface temperature are often an indicator for marine environmental change, since change in the habitat of marine organisms may result. In the models, the temperature is derived from a physical model of ocean circulation driven by the atmospheric heat fluxes.     

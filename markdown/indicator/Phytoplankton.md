@@ -1,9 +1,1 @@
-**Phytoplankton:** are microscopic organisms that produce energy through
-photosynthesis.  They are responsible for the transformation of carbon
-dioxide into organic carbon which sustains the growth of all other
-organisms in the ocean. Biomass is a measure of the abundance of
-phytoplankton in the ocean.
-
-
-
-
+**Phytoplankton:** are microscopic organisms that produce energy through photosynthesis.  They are responsible for the transformation of carbon dioxide into organic carbon which sustains the growth of all other organisms in the ocean. Biomass is a measure of the abundance of phytoplankton in the ocean.     

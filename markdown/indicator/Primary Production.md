@@ -1,8 +1,1 @@
-**Primary Production:** This is an indicator of how fast phytoplankton
-taking up (absorb) carbon from the ocean through photosynthesis. It is a
-measure of how much carbon is available to drive the whole marine
-ecosystem.
-
-
-
-
+**Primary Production:** This is an indicator of how fast phytoplankton taking up (absorb) carbon from the ocean through photosynthesis. It is a measure of how much carbon is available to drive the whole marine ecosystem.     

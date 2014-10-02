@@ -17,8 +17,7 @@ The Black Sea is one of the major semi-enclosed seas of the world oceans and has
 
 
 
-**Assimilation method:** Singular Fixed Extended Kalman Filter (SFEK)
-and the localized Ensemble Transform Kalman Filter (ETKF).
+**Assimilation method:** Singular Fixed Extended Kalman Filter (SFEK) and the localized Ensemble Transform Kalman Filter (ETKF).
 
 
 

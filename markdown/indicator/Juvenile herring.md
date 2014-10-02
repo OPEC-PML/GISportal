@@ -1,6 +1,1 @@
-**Juvenile herring:** This is a modelled indication of the total wet
-biomass of juvenile herring in the region.
-
-
-
-
+**Juvenile herring:** This is a modelled indication of the total wet biomass of juvenile herring in the region.     

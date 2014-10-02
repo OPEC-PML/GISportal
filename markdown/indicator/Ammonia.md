@@ -1,9 +1,1 @@
-**Ammonia:** This indicates the concentration of ammonia in the region.
-Nutrients play an important role in the health of marine ecosystems
-controlling the abundance of many species of phytoplankton. Change in
-the level of nutrients can have significant impacts on a marine
-ecosystem, effecting rates of primary production.
-
-
-
-
+**Ammonia:** This indicates the concentration of ammonia in the region. Nutrients play an important role in the health of marine ecosystems controlling the abundance of many species of phytoplankton. Change in the level of nutrients can have significant impacts on a marine ecosystem, effecting rates of primary production.     
