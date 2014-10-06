@@ -54,12 +54,14 @@ gisportal.layer = function(name, title, productAbstract, type, opts) {
       tags : null,
       options : null,
 
-      contactDetails: {},
-      offsetVectors: null
+      providerDetails: {},
+      offsetVectors: null,
+
+      autoScale: gisportal.config.autoScale
    };
    
    $.extend(true, this, this.defaults, opts);
-
+   //this.moreInfo = opts.moreInfo;
    // Used for sensor data from SOS, not tested as we have no sensor data
    this.sensorName = this.sensorName !== null ? this.sensorName.replace(/\s+/g, "") : null;
    this.sensorName = this.sensorName !== null ? this.sensorName.replace(/[\.,]+/g, "") : null;
@@ -210,9 +212,7 @@ gisportal.layer = function(name, title, productAbstract, type, opts) {
             layer.temporal = true;
             var datetimes = dimension.Value.split(',');           
             layer.DTCache = datetimes;
-            //layer.firstDate = gisportal.utils.displayDateString(datetimes[0]);
-            //layer.lastDate = gisportal.utils.displayDateString(datetimes[datetimes.length - 1]);
-         
+
          // Elevation dimension   
          } else if (value.Name.toLowerCase() == 'elevation') {
             layer.elevation = true;
@@ -237,6 +237,7 @@ gisportal.layer = function(name, title, productAbstract, type, opts) {
     */
    this.mergeNewParams = function(object) {
       if (this.openlayers['anID']) this.openlayers['anID'].mergeNewParams(object);
+      gisportal.scalebars.autoScale( this.id );
    };
    
    /**
@@ -309,7 +310,8 @@ gisportal.layer = function(name, title, productAbstract, type, opts) {
                  
          // Update map date cache now a new temporal layer has been added
          gisportal.refreshDateCache();
-         $('#viewDate').datepicker("option", "defaultDate", new Date('dd-mm-yy', layer.lastDate));
+         
+         $('#viewDate').datepicker("option", "defaultDate", endDate);
 
          gisportal.zoomOverall();
       } else {
@@ -387,13 +389,13 @@ gisportal.layer = function(name, title, productAbstract, type, opts) {
          if(matchedDate) {
             layer.currentDateTimes = matchedDate;
             // Choose 1st date in the matched date-times for the moment - will expand functionality later
-            layer.selectedDateTime = matchedDate[0];            
+            layer.selectedDateTime = matchedDate[0];
             
             //----------------------- TODO: Temp code -------------------------
             var keys = Object.keys(layer.openlayers);
             for(var i = 0, len = keys.length; i < len; i++) {
                if(layer.type == 'opLayers') {
-                  layer.openlayers[keys[i]].mergeNewParams({time: layer.selectedDateTime});
+                  layer.mergeNewParams({time: layer.selectedDateTime});
                } else {
                   if($.isFunction(layer.openlayers[keys[i]].removeAllFeatures)) {
                      layer.openlayers[keys[i]].removeAllFeatures();
@@ -438,7 +440,7 @@ gisportal.layer = function(name, title, productAbstract, type, opts) {
             if (layer.minScaleVal === null) layer.minScaleVal = layer.origMinScaleVal;
             if (layer.maxScaleVal === null) layer.maxScaleVal = layer.origMaxScaleVal;
             layer.units = data.units; 
-            layer.log = data.log == 'true' ? true : false;
+            layer.log = data.logScaling == true ? true : false;
 
             gisportal.layers[layer.id].metadataComplete = true; 
             layer.metadataComplete = true;
@@ -463,6 +465,10 @@ gisportal.layer = function(name, title, productAbstract, type, opts) {
          }
       });
    };
+
+   this.cacheUrl = function(){
+     return portalLocation() + 'cache/layers/' + layer.serverName + '_' + layer.origName + '.json'
+   }
 
    /**
     * This function creates an Open Layers layer, such as a WMS Layer.
@@ -565,8 +571,6 @@ gisportal.layer = function(name, title, productAbstract, type, opts) {
                }
                self.DTCache = times;
                self.WFSDatesToIDs = dateToIDLookup;
-               //layer.firstDate = gisportal.utils.displayDateString(datetimes[0].startdate);
-               //layer.lastDate = gisportal.utils.displayDateString(datetimes[datetimes.length - 1].startdate);
             }
          }
       }

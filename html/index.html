@@ -24,6 +24,8 @@
 <!-- jQuery no UI slider -->
 <script src="js-libs/jquery-nouislider/jquery.nouislider.min.js"></script>
 
+<script src="js-libs/swipe/swipe.js"></script>
+
 <!-- jQuery no UI slider -->
 <script src="js-libs/jquery.add-clear.js"></script>
 
@@ -77,7 +79,6 @@
          <ul class="js-timeline-labels timeline-labels grid-cell"></ul>
          <div id="timeline" class="grid-cell fill"></div>
          <div class="js-current-date"></div>
-         <a href="http://portaldev.marineopec.eu/about.html" class="grid-cell">About</a>
       </div>
    </div>
 
@@ -89,7 +90,12 @@
          <div data-panel-name="choose-indicator" class="js-show-panel tab">Indicators</div>
          <div data-panel-name="active-layers" class="js-show-panel tab">Layers</div>
          
-         <span class="btn icon-arrow-left-1 icon-btn js-hide-panel panel-icon-tab"></button>
+         <div class="pull-right">
+           <div data-panel-name="history" class="js-show-panel tab ">
+            <span  class="icon-briefcase"></span>
+           </div>
+           <span class="btn icon-arrow-left-1 icon-btn js-hide-panel panel-icon-tab"></span>
+        </div>
       </div>
        
        
@@ -100,7 +106,7 @@
             <li class="">
               <div class="panel-tab no-gap active clearix instructions">
                 <span>
-                  Choose an indicator bellow by searching or using the dropdowns. 
+                  Choose an indicator below by searching or using the dropdowns. 
                 </span>
               </div>
             </li>
@@ -136,7 +142,7 @@
       
       <!-- Refine the chosen indicator by region/interval/etc..  -->
       <div id="refinePanel" data-panel-name="refine-indicator" class="panel-container indicator-select">
-	       <div class="panel-container-solid-backdrop">
+         <div class="panel-container-solid-backdrop">
             <div class="js-refine-section-region">
               Select a Region:
               <label for="refine-region" class="indicator-dropdown">
@@ -157,17 +163,6 @@
               <ul id="refine-interval" class=" fake-select panel-list grid-list">
               </ul>
            </div>
-           
-           <div class="js-refine-section-reliability">
-              Select a Reliability:
-              <label for="refine-reliability" class="indicator-dropdown">
-                 Reliability
-                 <span class="icon_arrow"></span>
-              </label>
-              <ul id="refine-reliability" class=" fake-select panel-list grid-list">
-              </ul>
-           </div>
-           
 
            <div class="js-refine-section-provider">
               Select a Provider:
@@ -178,10 +173,21 @@
               <ul id="refine-provider" class=" fake-select panel-list grid-list">
               </ul>
            </div>
+
+           <div class="js-refine-section-reliability">
+              Select a Reliability:
+              <label for="refine-reliability" class="indicator-dropdown">
+                 Reliability
+                 <span class="icon_arrow"></span>
+              </label>
+              <ul id="refine-reliability" class=" fake-select panel-list grid-list">
+              </ul>
+           </div>
+           
            
            <button class="js-reset-options hidden text-button" title="Reset">Reset</button>
            <button class="text-button js-refine-configure">Cancel</button>
-	      </div>
+        </div>
       </div>
       
       
@@ -191,38 +197,73 @@
          </ul>
       </div>
       
-      <!-- Graphing panel  -->
-      <div  id="graphPanel"  data-panel-name="graph" class="panel-container">
-         <div class="graph-wait-message">
-            <h3>Processing</h3>
-            <div class="icon_loading grid-cell icon-column">loading</div>
-            <p>Your chart is processing, keep this browser window open</p>
-            <p>If you are signed in, you can add charts to a queue and we'll notify you when they're processed</p>
-          </div>
 
-         <div class="graph-holder"></div>
+      <div id="historyPanel" data-panel-name="history" class="panel-container" >
+        <div class="half" style="display: none;">
+          <h3>Saved States</h3>
+          <div class="js-states-saved-list"></div>
+        </div>
+        <div  class="half" >
+          <h3>Stored Plots</h3>
+          <div>
+            <div class="js-graphs-saved-list" ></div>
+            <div class="js-graphs-history-list" ></div>
+          </div>
+        </div>
       </div>
       
+
       <div class="panel-footer">
-           <label for="share-map">Share this map with colleagues</label>
+          <label for="about"></label>
+           <a href="http://portaldev.marineopec.eu/about.html" alt="link to about page" target="_blank">
+            <button id="about" class="about-button  brand secondary">
+            <span class="icon-btn"> </span>
+              About
+          </button>
+        </a>
+           <label for="share-map"></label>
            <button id="share-map" class="js-share brand secondary">
             <span class="icon-filled-link icon-btn"> </span>
               Share
           </button>
       </div>
-   
 
-      <!-- Slideout example -->
-      <div class="panel-slideout" data-slideout-name="example">
-        <div class="panel-slideout-content js-slideout-content">
-          <!-- Slideout contents should go here -->
-          <button class="js-slideout-close">Close</button>
-          <button class="js-slideout-peak">Peak</button>
+
+      <div class="panel-slideout js-active-plot-slideout active-plot-slideout" data-slideout-name="active-plot" data-slideout-override-action="peak">
+        <div class="slideout-pulltab js-slideout-pulltab-toggle-peak"></div>
+        <div class="panel-slideout-content-wrapper">
+          <div class=" panel-slideout-content js-slideout-content"></div>
+        </div>
+      </div>
+
+
+      <div class="panel-slideout js-export-raw-slideout" data-slideout-name="export-raw" data-slideout-override-action="hide">
+        <div class="panel-slideout-content-wrapper">
+          <div class=" panel-slideout-content js-slideout-content">
+          </div>
+        </div>
+      </div>
+
+      <!-- Slideout metadata -->
+      <div class="panel-slideout" data-slideout-name="metadata" data-slideout-override-action="hide">
+        <div class="panel-slideout-content-wrapper">
+          <div class="panel-slideout-content js-slideout-content">
+            <!-- Slideout contents should go here -->
+            <div class="metadata-slideout">
+            <div class="slideout-header">
+              More Information
+              <span class="btn icon-arrow-delete-1 icon-btn js-slideout-close panel-icon-tab right-icon js-close-extrainfo"></span>
+
+            </div>
+            
+              <div class="metadata-box metadata_indicator"></div>
+              <div class="metadata-box metadata_provider"></div>
+            </div>
+          </div>
         </div>
       </div>
    </div>
    
-
    <!-- The share box. -->
     <div class="share overlay hidden">
       <div class="share-container overlay-container">
@@ -237,43 +278,24 @@
       </div>
     </div>
 
-    <div class="panel hidden">
-      <div class="panel-header">
-        <button class="js-return-analysis text-button back-button">Return to Analysis</button>
-      </div>
-      <div  id="graphPanel" class="panel-container">
-         <div class="graph-wait-message">
-            <h3>Processing</h3>
-            <div class="icon_loading grid-cell icon-column">loading</div>
-            <p>Your chart is processing, keep this browser window open</p>
-            <p>If you are signed in, you can add charts to a queue and we'll notify you when they're processed</p>
-          </div>
 
-         <div class="graph-holder"></div>
-        <!--<label for="share-map">Share this graph with colleagues</label>
-        <button id="share-map" class="js-share">Share</button> -->
+    <div class="js-tac-popup overlay hidden dark-background">
+      <div class=" tac-container">
+        <div class="js-tac-content"></div>
+        <div class="tac-container-bottom">
+          <a class="btn brand with-border js-tac-accept">Accept</a>
+
+          <a class="btn brand with-border js-tac-decline">Decline</a>
+        </div>
       </div>
     </div>
 
-   <div class="export overlay hidden">
-      <div class="export-container overlay-container">
-         <button class="js-close-export text-button">Close</button>
-         <div>
-            <h2>Export the data</h2>
-            <ul>
-               <li><a id="export-csv" href="" download="processed.csv">Processed data - A CSV of the data used in the graph</a></li>
-               <li><a id="export-netcdf" href="" download="raw.nc">Raw data - The NetCDF for the selected area</a></li>
-            </ul>
-         </div>
-      </div>
-   </div> 
+
 
     <!-- Map controls -->
     <div class="map_controls">
-      <!--<button class="icon_region icon-svg dark separator js-quick-region">Select Region</button>
-      <button class="icon_pan icon-svg dark separator js-pan-map">Pan</button>-->
-      <button class="icon_zoomin icon-svg dark separator js-zoomin" id="mapZoomIn">Zoom In</button>
-      <button class="icon_zoomout icon-svg dark js-zoomout" id="mapZoomOut">Zoom Out</button>
+      <span class="icon-zoom-in btn" id="mapZoomIn"></span>
+      <span class="icon-zoom-out btn" id="mapZoomOut"></span>
     </div>
    <div class="global-loading-icon">
    </div>
