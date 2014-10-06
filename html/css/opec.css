@@ -1,0 +1,32 @@
+
+.navbar-brand { height :auto;}
+
+.container.banner { width:100%; background: url('../img/banner.jpg') no-repeat top center; background-size: auto 600px; margin-top: 80px; height: 300px; margin-bottom: 30px; border-bottom: 1px solid #ccc; background-attachment: fixed;  }
+@media (min-width: 1280px) {
+	.container.banner { background-size: 100% auto; }
+}
+#welcome .col-xs-6, #welcome .col-lg-4 { text-align: right; padding-top: 40px; }
+.container.separator { width: 100%; margin: 20px 0px; border-bottom: 1px solid #eee; }
+.container.footer {margin: 80px auto 250px auto; }
+
+.bs-callout { margin: 20px 0; padding: 20px; border-left: 3px solid #eee; }
+.bs-callout-info { background-color: #f4f8fa; border-color: #5bc0de; }
+.bs-callout h4 { margin-top: 0; margin-bottom: 5px; }
+.bs-callout-info h4 { color: #5bc0de; }
+
+a.top-link { 
+	-webkit-transform: rotate(270deg);
+	-moz-transform: rotate(270deg);
+	-o-transform: rotate(270deg);
+	writing-mode: lr-tb;
+	display: block;
+	width: 20px;
+	height: 20px;
+	font-size: 33px;
+	float: right;
+	color: #ccc;
+}
+a:hover.top-link {
+	color: #999;
+	text-decoration: none;
+}
