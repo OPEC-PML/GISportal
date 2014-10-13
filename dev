@@ -1,0 +1,5 @@
+git pull
+rm html/GISPortal.js
+python build.py --clean
+python build.py dev 
+autoprefixer html/css/GISPortal.css -o html/css/GISPortal.css -b "> 1%"
