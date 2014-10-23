@@ -11,7 +11,9 @@ The Mediterranean Sea is a semi-enclosed sea, characterised by an inverse estuar
 
 
 
-**Simulation period:** 1999-2013
+**Simulation period:**
+Hindcast: Jan 1999 - May 2012<br>
+Rapid Environmental Assessment (rolling 3 month hindcast): Jun 2012 - May 2014
 
 **Models used:** <a href="/resources/Modelling_in_the_Med_Sea_OGS.pdf" target="_blank">OPATM-BFM-ECOPATH with ECOSIM</a>
 

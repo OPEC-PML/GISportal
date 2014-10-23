@@ -10,7 +10,9 @@ The Baltic is a semi-enclosed, brackish water sea. The Danish Straits connect th
 
 
 
-**Simulation period:** 1990-2013
+**Simulation period:**
+Hindcast: Jan 1990 - May 2012<br>
+Rapid Environmental Assessment (rolling 3 month hindcast): Jun 2012 - Apr 2014
 
 **Models used:** <a href="/resources/Modelling_in_the_Baltic_Sea.pdf" target="_blank">HBM-ERGOM</a>
 
