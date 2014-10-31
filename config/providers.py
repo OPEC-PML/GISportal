@@ -18,7 +18,7 @@ providers ={
     "email": "ktsiaras@hcmr.gr",
     "model": "POSEIDON atmospheric forcing"
   },
-  "IMSMETU": {
+  "METU": {
     "logo": "img/providers/metu.png",
     "website": "http://www.ims.metu.edu.tr/",
     "email": "sinan.arkin@ims.metu.edu.tr"

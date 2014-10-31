@@ -6,7 +6,7 @@ layers = [
                 "Ecosystem_Element": "Phytoplankton", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity", 
+                    "Biological Diversity", 
                     "Foodwebs"
                 ], 
                 "interval": "Monthly", 
@@ -18,7 +18,7 @@ layers = [
                 "Ecosystem_Element": "Phytoplankton", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity", 
+                    "Biological Diversity", 
                     "Foodwebs"
                 ], 
                 "interval": "Monthly", 
@@ -29,7 +29,7 @@ layers = [
                 "Confidence": "High", 
                 "Ecosystem_Element": "Physics", 
                 "MSFD": [
-                    "Hydrography"
+                    "Hydrographical Conditions"
                 ], 
                 "interval": "Monthly", 
                 "niceName": "Mixed Layer Depth", 
@@ -40,7 +40,7 @@ layers = [
                 "Ecosystem_Element": "Phytoplankton", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity", 
+                    "Biological Diversity", 
                     "Foodwebs"
                 ], 
                 "interval": "Monthly", 
@@ -52,7 +52,7 @@ layers = [
                 "Ecosystem_Element": "Nutrient", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity"
+                    "Biological Diversity"
                 ], 
                 "interval": "Monthly", 
                 "niceName": "Nitrate", 
@@ -68,12 +68,23 @@ layers = [
                 "niceName": "Oxygen", 
                 "region": "Mediterranean Sea"
             }, 
+            "pH": {
+                "Confidence": "Low", 
+                "Ecosystem_Element": "Chemistry", 
+                "MSFD": [
+                    "Biological Diversity", 
+                    "Foodwebs"
+                ], 
+                "interval": "Monthly", 
+                "niceName": "pH", 
+                "region": "Mediterranean Sea"
+            }, 
             "phosphate": {
                 "Confidence": "Medium", 
                 "Ecosystem_Element": "Nutrient", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity"
+                    "Biological Diversity"
                 ], 
                 "interval": "Monthly", 
                 "niceName": "Phosphate", 
@@ -83,8 +94,8 @@ layers = [
                 "Confidence": "High", 
                 "Ecosystem_Element": "Physics", 
                 "MSFD": [
-                    "Biodiversity", 
-                    "Hydrography"
+                    "Biological Diversity", 
+                    "Hydrographical Conditions"
                 ], 
                 "interval": "Monthly", 
                 "niceName": "Salinity", 
@@ -95,7 +106,7 @@ layers = [
                 "Ecosystem_Element": "Nutrient", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity"
+                    "Biological Diversity"
                 ], 
                 "interval": "Monthly", 
                 "niceName": "Silicate", 
@@ -104,10 +115,6 @@ layers = [
             "temperature": {
                 "Confidence": "High", 
                 "Ecosystem_Element": "Physics", 
-                "MSFD": [
-                    "Biodiversity", 
-                    "Hydrography"
-                ], 
                 "interval": "Monthly", 
                 "niceName": "Temperature", 
                 "region": "Mediterranean Sea"
@@ -148,22 +155,10 @@ layers = [
                 "Ecosystem_Element": "Fish", 
                 "MSFD": [
                     "Foodwebs", 
-                    "Fisheries"
+                    "Commercial Fisheries"
                 ], 
                 "interval": "Daily", 
                 "niceName": "Adult Cod", 
-                "region": "North East Atlantic"
-            }, 
-            "Herbivorous_and_Omnivorous_zooplankton__copepods_": {
-                "Confidence": "Medium", 
-                "Ecosystem_Element": "Zooplankton", 
-                "MSFD": [
-                    "Eutrophication", 
-                    "Biodiversity", 
-                    "Foodwebs"
-                ], 
-                "interval": "Daily", 
-                "niceName": "Zooplankton", 
                 "region": "North East Atlantic"
             }, 
             "Herring__adult_": {
@@ -171,7 +166,7 @@ layers = [
                 "Ecosystem_Element": "Fish", 
                 "MSFD": [
                     "Foodwebs", 
-                    "Fisheries"
+                    "Commercial Fisheries"
                 ], 
                 "interval": "Daily", 
                 "niceName": "Adult Herring", 
@@ -182,7 +177,7 @@ layers = [
                 "Ecosystem_Element": "Fish", 
                 "MSFD": [
                     "Foodwebs", 
-                    "Fisheries"
+                    "Commercial Fisheries"
                 ], 
                 "interval": "Daily", 
                 "niceName": "Juvenile Herring", 
@@ -193,22 +188,10 @@ layers = [
                 "Ecosystem_Element": "Fish", 
                 "MSFD": [
                     "Foodwebs", 
-                    "Fisheries"
+                    "Commercial Fisheries"
                 ], 
                 "interval": "Daily", 
                 "niceName": "Juvenile Cod", 
-                "region": "North East Atlantic"
-            }, 
-            "Phytoplankton": {
-                "Confidence": "Medium", 
-                "Ecosystem_Element": "Phytoplankton", 
-                "MSFD": [
-                    "Eutrophication", 
-                    "Biodiversity", 
-                    "Foodwebs"
-                ], 
-                "interval": "Daily", 
-                "niceName": "Phytoplankton", 
                 "region": "North East Atlantic"
             }, 
             "Plaice": {
@@ -216,7 +199,7 @@ layers = [
                 "Ecosystem_Element": "Fish", 
                 "MSFD": [
                     "Foodwebs", 
-                    "Fisheries"
+                    "Commercial Fisheries"
                 ], 
                 "interval": "Daily", 
                 "niceName": "Plaice", 
@@ -227,7 +210,7 @@ layers = [
                 "Ecosystem_Element": "Fish", 
                 "MSFD": [
                     "Foodwebs", 
-                    "Fisheries"
+                    "Commercial Fisheries"
                 ], 
                 "interval": "Daily", 
                 "niceName": "Sandeels", 
@@ -238,7 +221,7 @@ layers = [
                 "Ecosystem_Element": "Fish", 
                 "MSFD": [
                     "Foodwebs", 
-                    "Fisheries"
+                    "Commercial Fisheries"
                 ], 
                 "interval": "Daily", 
                 "niceName": "Seabirds", 
@@ -280,7 +263,7 @@ layers = [
                 "Ecosystem_Element": "Phytoplankton", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity", 
+                    "Biological Diversity", 
                     "Foodwebs"
                 ], 
                 "interval": "Monthly", 
@@ -292,7 +275,7 @@ layers = [
                 "Ecosystem_Element": "Nutrient", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity", 
+                    "Biological Diversity", 
                     "Foodwebs"
                 ], 
                 "interval": "Monthly", 
@@ -304,7 +287,7 @@ layers = [
                 "Ecosystem_Element": "Nutrient", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity", 
+                    "Biological Diversity", 
                     "Foodwebs"
                 ], 
                 "interval": "Monthly", 
@@ -316,7 +299,7 @@ layers = [
                 "Ecosystem_Element": "Physics", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity", 
+                    "Biological Diversity", 
                     "Foodwebs"
                 ], 
                 "interval": "Monthly", 
@@ -328,7 +311,7 @@ layers = [
                 "Ecosystem_Element": "Gases", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity", 
+                    "Biological Diversity", 
                     "Foodwebs"
                 ], 
                 "interval": "Monthly", 
@@ -339,8 +322,7 @@ layers = [
                 "Confidence": "Medium", 
                 "Ecosystem_Element": "Chemistry", 
                 "MSFD": [
-                    "Eutrophication", 
-                    "Biodiversity", 
+                    "Biological Diversity", 
                     "Foodwebs"
                 ], 
                 "interval": "Monthly", 
@@ -352,7 +334,7 @@ layers = [
                 "Ecosystem_Element": "Physics", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity", 
+                    "Biological Diversity", 
                     "Foodwebs"
                 ], 
                 "interval": "Monthly", 
@@ -363,8 +345,7 @@ layers = [
                 "Confidence": "High", 
                 "Ecosystem_Element": "Physics", 
                 "MSFD": [
-                    "Eutrophication", 
-                    "Biodiversity", 
+                    "Biological Diversity", 
                     "Foodwebs"
                 ], 
                 "interval": "Monthly", 
@@ -376,7 +357,7 @@ layers = [
                 "Ecosystem_Element": "Zooplankton", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity", 
+                    "Biological Diversity", 
                     "Foodwebs"
                 ], 
                 "interval": "Monthly", 
@@ -386,7 +367,7 @@ layers = [
         }, 
         "name": "dmi", 
         "options": {
-            "positive": "down", 
+            "positive": "up", 
             "providerShortTag": "DMI"
         }, 
         "services": {
@@ -419,7 +400,7 @@ layers = [
                 "Ecosystem_Element": "Phytoplankton", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity", 
+                    "Biological Diversity", 
                     "Foodwebs"
                 ], 
                 "interval": "Monthly", 
@@ -460,7 +441,7 @@ layers = [
                 "Confidence": "Medium", 
                 "Ecosystem_Element": "Physics", 
                 "MSFD": [
-                    "Hydrography"
+                    "Hydrographical Conditions"
                 ], 
                 "interval": "Monthly", 
                 "niceName": "Mixed Layer Depth", 
@@ -471,7 +452,7 @@ layers = [
                 "Ecosystem_Element": "Nutrient", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity"
+                    "Biological Diversity"
                 ], 
                 "interval": "Monthly", 
                 "niceName": "Nitrate/Phosphate ratio", 
@@ -482,7 +463,7 @@ layers = [
                 "Ecosystem_Element": "Nutrient", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity"
+                    "Biological Diversity"
                 ], 
                 "interval": "Monthly", 
                 "niceName": "Nitrate/Silicate ratio", 
@@ -502,7 +483,7 @@ layers = [
                 "Confidence": "Medium", 
                 "Ecosystem_Element": "Physics", 
                 "MSFD": [
-                    "Hydrography"
+                    "Hydrographical Conditions"
                 ], 
                 "interval": "Monthly", 
                 "niceName": "Potential Energy Anomaly", 
@@ -513,7 +494,7 @@ layers = [
                 "Ecosystem_Element": "Phytoplankton", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity", 
+                    "Biological Diversity", 
                     "Foodwebs"
                 ], 
                 "interval": "Monthly", 
@@ -524,8 +505,8 @@ layers = [
                 "Confidence": "High", 
                 "Ecosystem_Element": "Physics", 
                 "MSFD": [
-                    "Biodiversity", 
-                    "Hydrography"
+                    "Biological Diversity", 
+                    "Hydrographical Conditions"
                 ], 
                 "interval": "Monthly", 
                 "niceName": "Salinity", 
@@ -535,8 +516,8 @@ layers = [
                 "Confidence": "High", 
                 "Ecosystem_Element": "Physics", 
                 "MSFD": [
-                    "Biodiversity", 
-                    "Hydrography"
+                    "Biological Diversity", 
+                    "Hydrographical Conditions"
                 ], 
                 "interval": "Monthly", 
                 "niceName": "Temperature", 
@@ -547,7 +528,7 @@ layers = [
                 "Ecosystem_Element": "Zooplankton", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity", 
+                    "Biological Diversity", 
                     "Foodwebs"
                 ], 
                 "interval": "Monthly", 
@@ -558,8 +539,8 @@ layers = [
                 "Confidence": "Medium", 
                 "Ecosystem_Element": "Physics", 
                 "MSFD": [
-                    "Biodiversity", 
-                    "Hydrography"
+                    "Biological Diversity", 
+                    "Hydrographical Conditions"
                 ], 
                 "interval": "Monthly", 
                 "niceName": "Euphotic depth", 
@@ -570,7 +551,7 @@ layers = [
                 "Ecosystem_Element": "Phytoplankton", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity", 
+                    "Biological Diversity", 
                     "Foodwebs"
                 ], 
                 "interval": "Monthly", 
@@ -580,9 +561,6 @@ layers = [
             "pCO2": {
                 "Confidence": "Medium", 
                 "Ecosystem_Element": "Gases", 
-                "MSFD": [
-                    "Eutrophication"
-                ], 
                 "interval": "Monthly", 
                 "niceName": "pCO2", 
                 "region": "North East Atlantic"
@@ -708,7 +686,7 @@ layers = [
                 "MSFD": [
                     "Eutrophication", 
                     "Foodwebs", 
-                    "Fisheries"
+                    "Commercial Fisheries"
                 ], 
                 "interval": "Monthly", 
                 "niceName": "Zooplankton", 
@@ -725,7 +703,7 @@ layers = [
                 "Confidence": "High", 
                 "Ecosystem_Element": "Physics", 
                 "MSFD": [
-                    "Hydrography"
+                    "Hydrographical Conditions"
                 ], 
                 "interval": "Monthly", 
                 "niceName": "Salinity", 
@@ -735,7 +713,7 @@ layers = [
                 "Confidence": "High", 
                 "Ecosystem_Element": "Physics", 
                 "MSFD": [
-                    "Hydrography"
+                    "Hydrographical Conditions"
                 ], 
                 "interval": "Monthly", 
                 "niceName": "Temperature", 
@@ -777,7 +755,7 @@ layers = [
                 "Ecosystem_Element": "Phytoplankton", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity", 
+                    "Biological Diversity", 
                     "Foodwebs"
                 ], 
                 "interval": "Monthly", 
@@ -788,7 +766,7 @@ layers = [
                 "Confidence": "Medium", 
                 "Ecosystem_Element": "Physics", 
                 "MSFD": [
-                    "Hydrography"
+                    "Hydrographical Conditions"
                 ], 
                 "interval": "Monthly", 
                 "niceName": "Mixed Layer Depth", 
@@ -799,7 +777,7 @@ layers = [
                 "Ecosystem_Element": "Nutrient", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity"
+                    "Biological Diversity"
                 ], 
                 "interval": "Monthly", 
                 "niceName": "Nitrate", 
@@ -810,7 +788,7 @@ layers = [
                 "Ecosystem_Element": "Phytoplankton", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity", 
+                    "Biological Diversity", 
                     "Foodwebs"
                 ], 
                 "interval": "Monthly", 
@@ -832,7 +810,7 @@ layers = [
                 "Ecosystem_Element": "Nutrient", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity"
+                    "Biological Diversity"
                 ], 
                 "interval": "Monthly", 
                 "niceName": "Phosphate", 
@@ -842,8 +820,8 @@ layers = [
                 "Confidence": "High", 
                 "Ecosystem_Element": "Physics", 
                 "MSFD": [
-                    "Biodiversity", 
-                    "Hydrography"
+                    "Biological Diversity", 
+                    "Hydrographical Conditions"
                 ], 
                 "interval": "Monthly", 
                 "niceName": "Salinity", 
@@ -853,8 +831,8 @@ layers = [
                 "Confidence": "High", 
                 "Ecosystem_Element": "Physics", 
                 "MSFD": [
-                    "Biodiversity", 
-                    "Hydrography"
+                    "Biological Diversity", 
+                    "Hydrographical Conditions"
                 ], 
                 "interval": "Monthly", 
                 "niceName": "Temperature", 
@@ -865,7 +843,7 @@ layers = [
                 "Ecosystem_Element": "Zooplankton", 
                 "MSFD": [
                     "Eutrophication", 
-                    "Biodiversity", 
+                    "Biological Diversity", 
                     "Foodwebs"
                 ], 
                 "interval": "Monthly", 
@@ -875,9 +853,6 @@ layers = [
             "pCO2w": {
                 "Confidence": "Medium", 
                 "Ecosystem_Element": "Gases", 
-                "MSFD": [
-                    "Eutrophication"
-                ], 
                 "interval": "Monthly", 
                 "niceName": "pCO2", 
                 "region": "Black Sea"
@@ -886,7 +861,7 @@ layers = [
         "name": "metu_monthly", 
         "options": {
             "positive": "down", 
-            "providerShortTag": "IMSMETU"
+            "providerShortTag": "METU"
         }, 
         "services": {
             "wcs": {
@@ -916,6 +891,10 @@ layers = [
             "anchovy": {
                 "Confidence": "Medium", 
                 "Ecosystem_Element": "Fish", 
+                "MSFD": [
+                    "Foodwebs", 
+                    "Commercial Fisheries"
+                ], 
                 "interval": "Monthly", 
                 "niceName": "Anchovy", 
                 "region": "Mediterranean Sea"
@@ -923,6 +902,10 @@ layers = [
             "sardine": {
                 "Confidence": "Medium", 
                 "Ecosystem_Element": "Fish", 
+                "MSFD": [
+                    "Foodwebs", 
+                    "Commercial Fisheries"
+                ], 
                 "interval": "Monthly", 
                 "niceName": "Sardine", 
                 "region": "Mediterranean Sea"
