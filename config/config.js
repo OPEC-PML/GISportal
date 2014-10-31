@@ -1,38 +1,32 @@
 /*------------------------------------*\
-    Configuration
-    This file is for the configuration
-    of the GIS Portal.
+   Configuration
+   This file is for the configuration
+   of the GIS Portal.
 
-    browseCategories - Used to define
-    which categories to be shown in the
-    browse panel. This is currently
-    limited to 2.
+   browseCategories - Used to define
+   which categories to be shown in the
+   browse panel. This is currently
+   limited to 2.
 \*------------------------------------*/
 
 
+
 gisportal.config = {
-   siteMode: "development", //(development|production)
-
-    // Skip start screen only is the user has a saved state, requires T&C
-   autoResumeSavedState: false,
-   
-   // Always skip the welcome page, also skips T&C
-   skipWelcomePage: false,
-
-   // Do we require terms and conditions agreement to use the portal
-   requiresTermsAndCondictions: true,
-
+   siteMode: "production", //(development|production)
    browseCategories : {
-      "Ecosystem_Element" : "Ecosystem",
-      "region": "Region",
-      "MSFD" : "EU MSFD"
+      "Ecosystem_Element" : "Ecosystem </br> Indicator",
+      "region": "Regional </br> Seas",
+      "MSFD" : "EU MSFD </br> Descriptor"
    },
    paths: {
-      graphServer: 'http://portaldev.marineopec.eu/plotting',
+      graphServer: 'http://portal.marineopec.eu/plotting',
       middlewarePath: '/service'
    },
-   
+
+   // Should layers auto scale by default
    autoScale: true,
+
+   requiresTermsAndCondictions: true,
 
    countryBorder : {
       'defaultLayer' : 'countries_all_white',      // (countries_all_white|countries_all_black|countries_all_blue)
@@ -40,7 +34,7 @@ gisportal.config = {
    },
    defaultBaseMap: 'EOX',
 
-   homepageSlides: [
+    homepageSlides: [
       "img/homepage-slides/opec1.jpg",
       "img/homepage-slides/opec2.jpg",
       "img/homepage-slides/opec3.jpg",
@@ -53,4 +47,6 @@ gisportal.config = {
    // Deny access to older browsers
    // none=Allow, advisory=Tell them only, strict=Stop them
    browserRestristion: "strict" //(none|advisory|strict)
+
 };
+
