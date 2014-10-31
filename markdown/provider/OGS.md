@@ -17,21 +17,8 @@ Rapid Environmental Assessment (rolling 3 month hindcast): Jun 2012 - May 2014
 
 **Models used:** <a href="/resources/Modelling_in_the_Med_Sea_OGS.pdf" target="_blank">OPATM-BFM-ECOPATH with ECOSIM</a>
 
-
-
-
 **Assimilation method:** 3D-VAR
-
-
-
 
 **Forcing:** MyOcean Mediterranean Forecast System (MFC) run by INGV (IT)
 
-
-
-
-
-
-
-
-
+**Model Skill:** <a href="/resources/Skill assessment of the Med Sea model system_OGS.pdf" target="_blank">Assessment of model skill in the Mediterranean Sea</a>

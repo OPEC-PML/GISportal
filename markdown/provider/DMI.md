@@ -16,20 +16,8 @@ Rapid Environmental Assessment (rolling 3 month hindcast): Jun 2012 - Apr 2014
 
 **Models used:** <a href="/resources/Modelling_in_the_Baltic_Sea.pdf" target="_blank">HBM-ERGOM</a>
 
-
-
 **Assimilation method:** Ensemble Optimal Interpolation (EnOI)
-
-
-
 
 **Forcing:** DMI regional hindcast
 
-
-
-
-
-
-
-
-
+**Model Skill:** <a href="/resources/Skill assessment of the Baltic Sea model system.pdf" target="_blank">Assessment of model skill in the Baltic Sea</a>

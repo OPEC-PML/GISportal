@@ -16,21 +16,8 @@ Rapid Environmental Assessment (rolling 3 month hindcast): Jun 2012 - Nov 2013
 
 **Models used:** <a href="/resources/Modelling_in_the_Black_Sea.pdf" target="_blank">POM-BIMS_ECO</a>
 
-
-
-
 **Assimilation method:** Singular Fixed Extended Kalman Filter (SFEK) and the localized Ensemble Transform Kalman Filter (ETKF).
-
-
-
 
 **Forcing:** DMI regional hindcast
 
-
-
-
-
-
-
-
-
+**Model Skill:** <a href="/resources/Skill assessment of the Black Sea model system.pdf" target="_blank">Assessment of model skill in the Black Sea</a>

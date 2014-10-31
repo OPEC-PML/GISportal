@@ -16,28 +16,8 @@ Rapid Environmental Assessment (rolling 3 month hindcast): Jun 2012 - Nov 2013
 
 **Models used:** <a href="/resources/Modelling_in_the_NE_Atlantic.pdf" target="_blank">POLCOMS-ERSEM</a>
 
-
-
-
 **Assimilation method:** Ensemble Kalman filter
-
-
-
 
 **Forcing:** *Meteorological regional hindcast from DMI*
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+**Model Skill:** <a href="/resources/Skill assessment of the Ne Atlantic model system.pdf" target="_blank">Assessment of model skill in the North East Atlantic</a>
