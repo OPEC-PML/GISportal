@@ -79,6 +79,17 @@ layers = [
                 "niceName": "pH", 
                 "region": "Mediterranean Sea"
             }, 
+            "pco2": {
+                "Confidence": "Medium", 
+                "Ecosystem_Element": "Gases", 
+                "MSFD": [
+                    "Biological Diversity", 
+                    "Foodwebs"
+                ], 
+                "interval": "Monthly", 
+                "niceName": "pCO2", 
+                "region": "Mediterranean Sea"
+            }, 
             "phosphate": {
                 "Confidence": "Medium", 
                 "Ecosystem_Element": "Nutrient", 
@@ -242,7 +253,7 @@ layers = [
                         "version": "1.0.0"
                     }
                 }, 
-                "url": "https://rsg.pml.ac.uk/thredds/wcs/CEFAS_GEN_HC/OPEC_Cefas_HC.nc?"
+                "url": "https://rsg.pml.ac.uk/thredds/wcs/CEFAS_GEN_HC?"
             }, 
             "wms": {
                 "params": {
@@ -252,7 +263,7 @@ layers = [
                         "version": "1.3.0"
                     }
                 }, 
-                "url": "https://rsg.pml.ac.uk/thredds/wms/CEFAS_GEN_HC/OPEC_Cefas_HC.nc?"
+                "url": "https://rsg.pml.ac.uk/thredds/wms/CEFAS_GEN_HC?"
             }
         }
     }, 
@@ -936,6 +947,48 @@ layers = [
                     }
                 }, 
                 "url": "https://rsg.pml.ac.uk/thredds/wms/OGS-GEN-HTL?"
+            }
+        }
+    }, 
+    {
+        "indicators": {
+            "biomass_cod_2": {
+                "Confidence": "Medium", 
+                "Ecosystem_Element": "Fish", 
+                "MSFD": [
+                    "Foodwebs", 
+                    "Commercial Fisheries"
+                ], 
+                "interval": "Quarterly", 
+                "niceName": "Cod (age 2)", 
+                "region": "Baltic Sea"
+            }
+        }, 
+        "name": "dtu", 
+        "options": {
+            "positive": "up", 
+            "providerShortTag": "DTU"
+        }, 
+        "services": {
+            "wcs": {
+                "params": {
+                    "DescribeCoverage": {
+                        "SERVICE": "WCS", 
+                        "request": "describeCoverage", 
+                        "version": "1.0.0"
+                    }
+                }, 
+                "url": "https://rsg.pml.ac.uk/thredds/wcs/DTU_GEN?"
+            }, 
+            "wms": {
+                "params": {
+                    "GetCapabilities": {
+                        "SERVICE": "WMS", 
+                        "request": "GetCapabilities", 
+                        "version": "1.3.0"
+                    }
+                }, 
+                "url": "https://rsg.pml.ac.uk/thredds/wms/DTU_GEN?"
             }
         }
     }
