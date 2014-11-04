@@ -7,6 +7,11 @@ providers ={
     "website": "http://www.cefas.defra.gov.uk/",
     "email": "Jonathan.Beecham@cefas.co.uk"
   }, 
+  "DTU": {
+    "logo": "img/providers/dtu.png",
+    "website": "http://www.aqua.dtu.dk/",
+    "email": "asc@aqua.dtu.dk"
+  },
   "DMI": {
     "logo": "img/providers/dmi.png",
     "website": "http://www.dmi.dk/en/vejr/",
