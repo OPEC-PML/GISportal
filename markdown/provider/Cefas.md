@@ -15,6 +15,6 @@ Hindcast: Feb 1991 - Nov 2009
 
 **Models used:** <a href="/resources/Modelling_in_the_NE_Atlantic.pdf" target="_blank">POLCOMS-ERSEM-Ecospace - Cefas North Sea Model</a>
 
-
 **Forcing:** DMI regional hindcast
 
+**Model Skill:** <a href="/resources/Skill assessment of the Ne Atlantic model system.pdf" target="_blank">Assessment of model skill in the North East Atlantic</a>

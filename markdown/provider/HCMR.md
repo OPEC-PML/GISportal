@@ -16,21 +16,8 @@ Rapid Environmental Assessment (rolling 3 month hindcast): Jun 2012 - Dec 2013
 
 **Models used:** <a href="/resources/Modelling_in_the_Med_Sea_HCMR.pdf" target="_blank">POM-ERSEM</a>
 
-
-
-
 **Assimilation method:** SEEK (Singular evolutive Extended Kalman) filter
-
-
-
 
 **Forcing:** POSEIDON and DMI regional hindcast
 
-
-
-
-
-
-
-
-
+**Model Skill:** <a href="/resources/Skill assessment of the Med Sea model system_HCMR.pdf" target="_blank">Assessment of model skill in the Mediterranean Sea</a>
