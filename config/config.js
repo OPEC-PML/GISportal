@@ -23,9 +23,9 @@ gisportal.config = {
    requiresTermsAndCondictions: true,
 
    browseCategories : {
-      "Ecosystem_Element" : "Ecosystem",
-      "region": "Region",
-      "MSFD" : "EU MSFD"
+      "Ecosystem_Element" : "Ecosystem </br> Indicator",
+      "region": "Regional </br> Seas",
+      "MSFD" : "EU MSFD </br> Descriptor"
    },
    paths: {
       graphServer: 'http://portaldev.marineopec.eu/plotting',

@@ -899,6 +899,48 @@ layers = [
     }, 
     {
         "indicators": {
+            "U": {
+                "Confidence": "Low", 
+                "Ecosystem_Element": "Fish", 
+                "MSFD": [
+                    "Foodwebs", 
+                    "Commercial Fisheries"
+                ], 
+                "interval": "Monthly", 
+                "niceName": "Pelagic predator biomass", 
+                "region": "North East Atlantic"
+            }
+        }, 
+        "name": "cefas_monthly", 
+        "options": {
+            "positive": "down", 
+            "providerShortTag": "Cefas"
+        }, 
+        "services": {
+            "wcs": {
+                "params": {
+                    "DescribeCoverage": {
+                        "SERVICE": "WCS", 
+                        "request": "describeCoverage", 
+                        "version": "1.0.0"
+                    }
+                }, 
+                "url": "https://rsg.pml.ac.uk/thredds/wcs/CEFAS_GEN_HTL?"
+            }, 
+            "wms": {
+                "params": {
+                    "GetCapabilities": {
+                        "SERVICE": "WMS", 
+                        "request": "GetCapabilities", 
+                        "version": "1.3.0"
+                    }
+                }, 
+                "url": "https://rsg.pml.ac.uk/thredds/wms/CEFAS_GEN_HTL?"
+            }
+        }
+    }, 
+    {
+        "indicators": {
             "anchovy": {
                 "Confidence": "Medium", 
                 "Ecosystem_Element": "Fish", 
