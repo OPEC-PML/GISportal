@@ -3,7 +3,7 @@ layers = [
         "indicators": {
             "chl": {
                 "Confidence": "Medium", 
-                "Ecosystem_Element": "Phytoplankton", 
+                "Ecosystem_Element": "Plankton", 
                 "MSFD": [
                     "Eutrophication", 
                     "Biological Diversity", 
@@ -15,7 +15,7 @@ layers = [
             }, 
             "mesozooplankton": {
                 "Confidence": "Medium", 
-                "Ecosystem_Element": "Phytoplankton", 
+                "Ecosystem_Element": "Plankton", 
                 "MSFD": [
                     "Eutrophication", 
                     "Biological Diversity", 
@@ -37,7 +37,7 @@ layers = [
             }, 
             "netPP": {
                 "Confidence": "Medium", 
-                "Ecosystem_Element": "Phytoplankton", 
+                "Ecosystem_Element": "Plankton", 
                 "MSFD": [
                     "Eutrophication", 
                     "Biological Diversity", 
@@ -271,7 +271,7 @@ layers = [
         "indicators": {
             "Chloro": {
                 "Confidence": "Medium", 
-                "Ecosystem_Element": "Phytoplankton", 
+                "Ecosystem_Element": "Plankton", 
                 "MSFD": [
                     "Eutrophication", 
                     "Biological Diversity", 
@@ -365,7 +365,7 @@ layers = [
             }, 
             "Zooplank": {
                 "Confidence": "Medium", 
-                "Ecosystem_Element": "Zooplankton", 
+                "Ecosystem_Element": "Plankton", 
                 "MSFD": [
                     "Eutrophication", 
                     "Biological Diversity", 
@@ -408,7 +408,7 @@ layers = [
         "indicators": {
             "Chl": {
                 "Confidence": "Medium", 
-                "Ecosystem_Element": "Phytoplankton", 
+                "Ecosystem_Element": "Plankton", 
                 "MSFD": [
                     "Eutrophication", 
                     "Biological Diversity", 
@@ -502,7 +502,7 @@ layers = [
             }, 
             "Pc": {
                 "Confidence": "Medium", 
-                "Ecosystem_Element": "Phytoplankton", 
+                "Ecosystem_Element": "Plankton", 
                 "MSFD": [
                     "Eutrophication", 
                     "Biological Diversity", 
@@ -536,7 +536,7 @@ layers = [
             }, 
             "Zc": {
                 "Confidence": "Low", 
-                "Ecosystem_Element": "Zooplankton", 
+                "Ecosystem_Element": "Plankton", 
                 "MSFD": [
                     "Eutrophication", 
                     "Biological Diversity", 
@@ -559,7 +559,7 @@ layers = [
             }, 
             "netPP": {
                 "Confidence": "Medium", 
-                "Ecosystem_Element": "Phytoplankton", 
+                "Ecosystem_Element": "Plankton", 
                 "MSFD": [
                     "Eutrophication", 
                     "Biological Diversity", 
@@ -616,7 +616,7 @@ layers = [
             }, 
             "NPP": {
                 "Confidence": "Medium", 
-                "Ecosystem_Element": "Phytoplankton", 
+                "Ecosystem_Element": "Plankton", 
                 "MSFD": [
                     "Eutrophication", 
                     "Foodwebs"
@@ -675,7 +675,7 @@ layers = [
             }, 
             "Totchl": {
                 "Confidence": "High", 
-                "Ecosystem_Element": "Phytoplankton", 
+                "Ecosystem_Element": "Plankton", 
                 "MSFD": [
                     "Eutrophication", 
                     "Foodwebs"
@@ -686,14 +686,14 @@ layers = [
             }, 
             "TotphytoC": {
                 "Confidence": "High", 
-                "Ecosystem_Element": "Phytoplankton", 
+                "Ecosystem_Element": "Plankton", 
                 "interval": "Monthly", 
                 "niceName": "Phytoplankton", 
                 "region": "Mediterranean Sea"
             }, 
             "Totzoo": {
                 "Confidence": "Low", 
-                "Ecosystem_Element": "Zooplankton", 
+                "Ecosystem_Element": "Plankton", 
                 "MSFD": [
                     "Eutrophication", 
                     "Foodwebs", 
@@ -763,7 +763,7 @@ layers = [
         "indicators": {
             "CHL": {
                 "Confidence": "Medium", 
-                "Ecosystem_Element": "Phytoplankton", 
+                "Ecosystem_Element": "Plankton", 
                 "MSFD": [
                     "Eutrophication", 
                     "Biological Diversity", 
@@ -796,7 +796,7 @@ layers = [
             }, 
             "NPP": {
                 "Confidence": "Medium", 
-                "Ecosystem_Element": "Phytoplankton", 
+                "Ecosystem_Element": "Plankton", 
                 "MSFD": [
                     "Eutrophication", 
                     "Biological Diversity", 
@@ -851,7 +851,7 @@ layers = [
             }, 
             "Z": {
                 "Confidence": "Low", 
-                "Ecosystem_Element": "Zooplankton", 
+                "Ecosystem_Element": "Plankton", 
                 "MSFD": [
                     "Eutrophication", 
                     "Biological Diversity", 
