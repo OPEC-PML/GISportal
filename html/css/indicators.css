@@ -129,6 +129,11 @@
    margin: 0 10px 0 5px;
 }
 
+.indicator-list {
+   overflow: auto;
+   position: static;
+}
+
 .indicator-header-icon{
   font-size: 23px;
   width: 35px;
