@@ -240,23 +240,25 @@ gisportal.graphs.Plot =(function(){
    }
 
    Plot.prototype.buildRequestDataTimeSeries = function( seriesArray ){
-      var totalCount = 1;
+      var totalCount = 0;
       for( var i = 0; i < this._components.length; i++ ){
          var component = this._components[ i ];
          var indicator = gisportal.layers[ component.indicator ];
 
-         // Add all 5 timeseires values
-         var showByDefault = 'mean';
-         var sub_series = [ 'std', 'min', 'max', 'median', 'mean' ].map(function( metric ){
-            return {
-               "label" : (totalCount++) + ') ' + indicator.descriptiveName + " " + metric ,
-               "subSeriesLabel":  totalCount + ') ' +metric,
-               "key"  : metric,
-               "yAxis": component.yAxis,
-               "type": "line",
-               "disabled": metric != showByDefault
-            };
-         });
+         var groupKey = indicator.descriptiveName;
+
+         var meta = "";
+
+         meta += "Region: " + indicator.tags.region + "<br>";
+         meta += "Confidence: " + indicator.tags.Confidence + "<br>";
+         meta += "Provider: " + indicator.providerTag + "<br>";
+         meta += "Interval: " + indicator.tags.interval + "<br>";
+
+         if( component.elevation )
+            meta += "Depth: " + component.elevation + indicator.elevationUnits + "<br>";
+
+         if( component.bbox )
+            meta += "BBox: " + component.bbox + "<br>";
 
          var newSeries = {
             "handler" : "OPEC_SERVICE_WCS",
@@ -270,7 +272,10 @@ gisportal.graphs.Plot =(function(){
                "metaCacheUrl" : indicator.cacheUrl(),
                "middlewareUrl" : gisportal.middlewarePath + '/wcs'
             },
-            "sub_series" : sub_series
+            "label": (++totalCount) + ') ' + indicator.descriptiveName,
+            "yAxis": component.yAxis,
+            "type": "line",
+            "meta": meta
             
          };
          seriesArray.push( newSeries );

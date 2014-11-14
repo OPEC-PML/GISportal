@@ -19,7 +19,7 @@ gisportal.indicatorsPanel.open = function() {
 
 gisportal.indicatorsPanel.initDOM = function() {
    $('.js-indicators').on('click', '.js-toggleVisibility', function() {
-      var id = $(this).parent().data('id');
+      var id = $(this).closest('[data-id]').data('id');
       if (gisportal.layers[id].isVisible) {
          gisportal.indicatorsPanel.hideLayer(id);
       } else {
@@ -41,7 +41,7 @@ gisportal.indicatorsPanel.initDOM = function() {
       if (gisportal.selectedLayers.length <= 1) {
          gisportal.panels.showPanel('choose-indicator');
       }
-      var id = $(this).parent().data('id');
+      var id = $(this).closest('[data-id]').data('id');
       gisportal.indicatorsPanel.removeFromPanel(id);
    });
 
@@ -168,8 +168,23 @@ gisportal.indicatorsPanel.initDOM = function() {
       gisportal.indicatorsPanel.selectTab( layerId, tabName );
    });
 
+   // make the selected indicators list sortable, and the event to fire after sorting
+   $('ul.js-indicators').addClass('sortable-list');
 
-
+   $(".sortable-list").sortable({
+      start: function(event, ui) {
+         $(ui.item).children('.indicator-header').addClass('indicator-header-moving');
+      },
+      stop : function(event, ui) {
+         $(ui.item).children('div.indicator-header').removeClass('indicator-header-moving'); 
+         // change the layer order
+         var layers = [];
+         $('.sortable-list .indicator-header').each(function() {
+            layers.push($(this).data('provider') + ': ' + $(this).data('name'));
+         })
+         gisportal.indicatorsPanel.reorderLayers(layers);
+      }
+   });
 };
 
 gisportal.events.bind('metadata.close', function() {
@@ -290,15 +305,26 @@ gisportal.indicatorsPanel.addToPanel = function(data) {
       maxWidth: 200
    });
 
-
-   gisportal.indicatorsPanel.selectTab( id, layer.visibleTab );
+   gisportal.events.trigger('layer.addtopanel', data)
 };
+
+gisportal.indicatorsPanel.reorderLayers = function(layers) {
+   var index = layers.length;
+   for(var i = 0; i < layers.length; i++) {
+      var layer = map.getLayersByName(layers[i])[0];
+      console.log('setting '+layer.name+' as '+ parseInt(index - i));
+      map.setLayerIndex(layer, index-i);
+   }
+
+}
 
 gisportal.indicatorsPanel.removeFromPanel = function(id) {
 
    $('.js-indicators > li[data-id="' + id + '"]').remove();
    if (gisportal.layers[id]) gisportal.removeLayer(gisportal.layers[id]);
    gisportal.timeline.removeTimeBarById(id);
+
+   gisportal.events.trigger('layer.remove', id, gisportal.layers[id].name)
 };
 
 /* There is overlap here with configurePanel,
@@ -311,6 +337,8 @@ gisportal.indicatorsPanel.selectLayer = function(id) {
       var name = layer.name.toLowerCase();
       options.visible = true;
       gisportal.getLayerData(layer.serverName + '_' + layer.urlName + '.json', layer, options);
+      
+      gisportal.events.trigger('layer.select', id, gisportal.layers[id].name)
    }
 };
 
@@ -318,6 +346,8 @@ gisportal.indicatorsPanel.hideLayer = function(id) {
    if (gisportal.layers[id]) {
       gisportal.layers[id].setVisibility(false);
       $('[data-id="' + id + '"] .indicator-header .js-toggleVisibility').toggleClass('active', false);
+
+      gisportal.events.trigger('layer.hide', id, gisportal.layers[id].name)
    }
 };
 
@@ -325,6 +355,8 @@ gisportal.indicatorsPanel.showLayer = function(id) {
    if (gisportal.layers[id]) {
       gisportal.layers[id].setVisibility(true);
       $('[data-id="' + id + '"] .indicator-header .js-toggleVisibility').toggleClass('active', true);
+
+      gisportal.events.trigger('layer.show', id, gisportal.layers[id].name)
    }
 };
 
@@ -408,7 +440,6 @@ gisportal.indicatorsPanel.scalebarTab = function(id) {
 
       $('#tab-' + indicator.id + '-opacity').noUiSlider({
          start: [ indicator.opacity * 100 ],
-         step: 10,
          margin: 20,
          connect: "lower",
          range: {
@@ -429,7 +460,7 @@ gisportal.indicatorsPanel.scalebarTab = function(id) {
          $(this).html(parseInt(value) +'%');
       }
 
-      $('#tab-' + indicator.id + '-opacity').on('set', function() {
+      $('#tab-' + indicator.id + '-opacity').on('slide', function() {
          gisportal.layers[indicator.id].setOpacity( $(this).val() / 100 )
       });
 
@@ -746,7 +777,8 @@ gisportal.indicatorsPanel.selectTab = function( layerId, tabName ){
 
    var newLocation = containerScroll + layerTop;
    $('#indicatorsPanel').stop().animate({
-      scrollTop: newLocation
+      scrollTop: newLocation,
+      duration: 150
    }, 2000).one('mousewheel', function(){
       $(this).stop();
    });
