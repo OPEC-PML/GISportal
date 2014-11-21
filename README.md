@@ -8,7 +8,7 @@ The GIS portal was developed as part of the [European Commission FP7](http://cor
 
 The portal is composed of three parts. A web frontend written with **HTML**, **CSS** and **JavaScript**, a middleware written in **Python**, and a backend consisting of **OGC WXS** services. 
 
-### Web Frontend ###
+### Web Front-End ###
 Main JavaScript Location: **src/**  
 Javascript Libs: **html/js-libs/**  
 Our CSS: **html/css/** - To be further split out into separate files.  
