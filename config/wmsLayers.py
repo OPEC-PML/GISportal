@@ -9,7 +9,9 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Kostas Tsiaras", 
                 "interval": "Monthly", 
+                "model": "POM-ERSEM", 
                 "niceName": "Chlorophyll", 
                 "region": "Mediterranean Sea"
             }, 
@@ -21,7 +23,9 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Kostas Tsiaras", 
                 "interval": "Monthly", 
+                "model": "POM-ERSEM", 
                 "niceName": "Zooplankton", 
                 "region": "Mediterranean Sea"
             }, 
@@ -31,7 +35,9 @@ layers = [
                 "MSFD": [
                     "Hydrographical Conditions"
                 ], 
+                "contact": "Kostas Tsiaras", 
                 "interval": "Monthly", 
+                "model": "POM-ERSEM", 
                 "niceName": "Mixed Layer Depth", 
                 "region": "Mediterranean Sea"
             }, 
@@ -43,7 +49,9 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Kostas Tsiaras", 
                 "interval": "Monthly", 
+                "model": "POM-ERSEM", 
                 "niceName": "Primary Production", 
                 "region": "Mediterranean Sea"
             }, 
@@ -54,7 +62,9 @@ layers = [
                     "Eutrophication", 
                     "Biological Diversity"
                 ], 
+                "contact": "Kostas Tsiaras", 
                 "interval": "Monthly", 
+                "model": "POM-ERSEM", 
                 "niceName": "Nitrate", 
                 "region": "Mediterranean Sea"
             }, 
@@ -64,7 +74,9 @@ layers = [
                 "MSFD": [
                     "Eutrophication"
                 ], 
+                "contact": "Kostas Tsiaras", 
                 "interval": "Monthly", 
+                "model": "POM-ERSEM", 
                 "niceName": "Oxygen", 
                 "region": "Mediterranean Sea"
             }, 
@@ -75,7 +87,9 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Kostas Tsiaras", 
                 "interval": "Monthly", 
+                "model": "POM-ERSEM", 
                 "niceName": "pH", 
                 "region": "Mediterranean Sea"
             }, 
@@ -86,7 +100,9 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Kostas Tsiaras", 
                 "interval": "Monthly", 
+                "model": "POM-ERSEM", 
                 "niceName": "pCO2", 
                 "region": "Mediterranean Sea"
             }, 
@@ -97,7 +113,9 @@ layers = [
                     "Eutrophication", 
                     "Biological Diversity"
                 ], 
+                "contact": "Kostas Tsiaras", 
                 "interval": "Monthly", 
+                "model": "POM-ERSEM", 
                 "niceName": "Phosphate", 
                 "region": "Mediterranean Sea"
             }, 
@@ -108,7 +126,9 @@ layers = [
                     "Biological Diversity", 
                     "Hydrographical Conditions"
                 ], 
+                "contact": "Kostas Tsiaras", 
                 "interval": "Monthly", 
+                "model": "POM-ERSEM", 
                 "niceName": "Salinity", 
                 "region": "Mediterranean Sea"
             }, 
@@ -119,14 +139,18 @@ layers = [
                     "Eutrophication", 
                     "Biological Diversity"
                 ], 
+                "contact": "Kostas Tsiaras", 
                 "interval": "Monthly", 
+                "model": "POM-ERSEM", 
                 "niceName": "Silicate", 
                 "region": "Mediterranean Sea"
             }, 
             "temperature": {
                 "Confidence": "High", 
                 "Ecosystem_Element": "Physics", 
+                "contact": "Kostas Tsiaras", 
                 "interval": "Monthly", 
+                "model": "POM-ERSEM", 
                 "niceName": "Temperature", 
                 "region": "Mediterranean Sea"
             }
@@ -168,7 +192,9 @@ layers = [
                     "Foodwebs", 
                     "Commercial Fisheries"
                 ], 
+                "contact": "Jonathan Beecham", 
                 "interval": "Daily", 
+                "model": "POLCOMS-ERSEM-Ecospace - Cefas North Sea Model", 
                 "niceName": "Adult Cod", 
                 "region": "North East Atlantic"
             }, 
@@ -179,7 +205,9 @@ layers = [
                     "Foodwebs", 
                     "Commercial Fisheries"
                 ], 
+                "contact": "Jonathan Beecham", 
                 "interval": "Daily", 
+                "model": "POLCOMS-ERSEM-Ecospace - Cefas North Sea Model", 
                 "niceName": "Adult Herring", 
                 "region": "North East Atlantic"
             }, 
@@ -190,7 +218,9 @@ layers = [
                     "Foodwebs", 
                     "Commercial Fisheries"
                 ], 
+                "contact": "Jonathan Beecham", 
                 "interval": "Daily", 
+                "model": "POLCOMS-ERSEM-Ecospace - Cefas North Sea Model", 
                 "niceName": "Juvenile Herring", 
                 "region": "North East Atlantic"
             }, 
@@ -201,7 +231,9 @@ layers = [
                     "Foodwebs", 
                     "Commercial Fisheries"
                 ], 
+                "contact": "Jonathan Beecham", 
                 "interval": "Daily", 
+                "model": "POLCOMS-ERSEM-Ecospace - Cefas North Sea Model", 
                 "niceName": "Juvenile Cod", 
                 "region": "North East Atlantic"
             }, 
@@ -212,7 +244,9 @@ layers = [
                     "Foodwebs", 
                     "Commercial Fisheries"
                 ], 
+                "contact": "Jonathan Beecham", 
                 "interval": "Daily", 
+                "model": "POLCOMS-ERSEM-Ecospace - Cefas North Sea Model", 
                 "niceName": "Plaice", 
                 "region": "North East Atlantic"
             }, 
@@ -223,7 +257,9 @@ layers = [
                     "Foodwebs", 
                     "Commercial Fisheries"
                 ], 
+                "contact": "Jonathan Beecham", 
                 "interval": "Daily", 
+                "model": "POLCOMS-ERSEM-Ecospace - Cefas North Sea Model", 
                 "niceName": "Sandeels", 
                 "region": "North East Atlantic"
             }, 
@@ -234,7 +270,9 @@ layers = [
                     "Foodwebs", 
                     "Commercial Fisheries"
                 ], 
+                "contact": "Jonathan Beecham", 
                 "interval": "Daily", 
+                "model": "POLCOMS-ERSEM-Ecospace - Cefas North Sea Model", 
                 "niceName": "Seabirds", 
                 "region": "North East Atlantic"
             }
@@ -277,7 +315,9 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Zhenwen Wan", 
                 "interval": "Monthly", 
+                "model": "HBM-ERGOM", 
                 "niceName": "Chlorophyll", 
                 "region": "Baltic Sea"
             }, 
@@ -289,7 +329,9 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Zhenwen Wan", 
                 "interval": "Monthly", 
+                "model": "HBM-ERGOM", 
                 "niceName": "Nitrate", 
                 "region": "Baltic Sea"
             }, 
@@ -301,7 +343,9 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Zhenwen Wan", 
                 "interval": "Monthly", 
+                "model": "HBM-ERGOM", 
                 "niceName": "Phosphate", 
                 "region": "Baltic Sea"
             }, 
@@ -313,7 +357,9 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Zhenwen Wan", 
                 "interval": "Monthly", 
+                "model": "HBM-ERGOM", 
                 "niceName": "Mixed Layer Depth", 
                 "region": "Baltic Sea"
             }, 
@@ -325,7 +371,9 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Zhenwen Wan", 
                 "interval": "Monthly", 
+                "model": "HBM-ERGOM", 
                 "niceName": "Oxygen", 
                 "region": "Baltic Sea"
             }, 
@@ -336,7 +384,9 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Zhenwen Wan", 
                 "interval": "Monthly", 
+                "model": "HBM-ERGOM", 
                 "niceName": "pH", 
                 "region": "Baltic Sea"
             }, 
@@ -348,7 +398,9 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Zhenwen Wan", 
                 "interval": "Monthly", 
+                "model": "HBM-ERGOM", 
                 "niceName": "Salinity", 
                 "region": "Baltic Sea"
             }, 
@@ -359,7 +411,9 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Zhenwen Wan", 
                 "interval": "Monthly", 
+                "model": "HBM-ERGOM", 
                 "niceName": "Temperature", 
                 "region": "Baltic Sea"
             }, 
@@ -371,7 +425,9 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Zhenwen Wan", 
                 "interval": "Monthly", 
+                "model": "HBM-ERGOM", 
                 "niceName": "Zooplankton", 
                 "region": "Baltic Sea"
             }
@@ -414,7 +470,9 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Stefano Ciavatta", 
                 "interval": "Monthly", 
+                "model": "POLCOMS-ERSEM", 
                 "niceName": "Chlorophyll", 
                 "region": "North East Atlantic"
             }, 
@@ -424,7 +482,9 @@ layers = [
                 "MSFD": [
                     "Eutrophication"
                 ], 
+                "contact": "Stefano Ciavatta", 
                 "interval": "Monthly", 
+                "model": "POLCOMS-ERSEM", 
                 "niceName": "Nitrate", 
                 "region": "North East Atlantic"
             }, 
@@ -434,7 +494,9 @@ layers = [
                 "MSFD": [
                     "Eutrophication"
                 ], 
+                "contact": "Stefano Ciavatta", 
                 "interval": "Monthly", 
+                "model": "POLCOMS-ERSEM", 
                 "niceName": "Phosphate", 
                 "region": "North East Atlantic"
             }, 
@@ -444,7 +506,9 @@ layers = [
                 "MSFD": [
                     "Eutrophication"
                 ], 
+                "contact": "Stefano Ciavatta", 
                 "interval": "Monthly", 
+                "model": "POLCOMS-ERSEM", 
                 "niceName": "Silicate", 
                 "region": "North East Atlantic"
             }, 
@@ -454,7 +518,9 @@ layers = [
                 "MSFD": [
                     "Hydrographical Conditions"
                 ], 
+                "contact": "Stefano Ciavatta", 
                 "interval": "Monthly", 
+                "model": "POLCOMS-ERSEM", 
                 "niceName": "Mixed Layer Depth", 
                 "region": "North East Atlantic"
             }, 
@@ -465,7 +531,9 @@ layers = [
                     "Eutrophication", 
                     "Biological Diversity"
                 ], 
+                "contact": "Stefano Ciavatta", 
                 "interval": "Monthly", 
+                "model": "POLCOMS-ERSEM", 
                 "niceName": "Nitrate/Phosphate ratio", 
                 "region": "North East Atlantic"
             }, 
@@ -476,7 +544,9 @@ layers = [
                     "Eutrophication", 
                     "Biological Diversity"
                 ], 
+                "contact": "Stefano Ciavatta", 
                 "interval": "Monthly", 
+                "model": "POLCOMS-ERSEM", 
                 "niceName": "Nitrate/Silicate ratio", 
                 "region": "North East Atlantic"
             }, 
@@ -486,7 +556,9 @@ layers = [
                 "MSFD": [
                     "Eutrophication"
                 ], 
+                "contact": "Stefano Ciavatta", 
                 "interval": "Monthly", 
+                "model": "POLCOMS-ERSEM", 
                 "niceName": "Oxygen", 
                 "region": "North East Atlantic"
             }, 
@@ -496,7 +568,9 @@ layers = [
                 "MSFD": [
                     "Hydrographical Conditions"
                 ], 
+                "contact": "Stefano Ciavatta", 
                 "interval": "Monthly", 
+                "model": "POLCOMS-ERSEM", 
                 "niceName": "Potential Energy Anomaly", 
                 "region": "North East Atlantic"
             }, 
@@ -508,7 +582,9 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Stefano Ciavatta", 
                 "interval": "Monthly", 
+                "model": "POLCOMS-ERSEM", 
                 "niceName": "Phytoplankton", 
                 "region": "North East Atlantic"
             }, 
@@ -519,7 +595,9 @@ layers = [
                     "Biological Diversity", 
                     "Hydrographical Conditions"
                 ], 
+                "contact": "Stefano Ciavatta", 
                 "interval": "Monthly", 
+                "model": "POLCOMS-ERSEM", 
                 "niceName": "Salinity", 
                 "region": "North East Atlantic"
             }, 
@@ -530,7 +608,9 @@ layers = [
                     "Biological Diversity", 
                     "Hydrographical Conditions"
                 ], 
+                "contact": "Stefano Ciavatta", 
                 "interval": "Monthly", 
+                "model": "POLCOMS-ERSEM", 
                 "niceName": "Temperature", 
                 "region": "North East Atlantic"
             }, 
@@ -542,7 +622,9 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Stefano Ciavatta", 
                 "interval": "Monthly", 
+                "model": "POLCOMS-ERSEM", 
                 "niceName": "Zooplankton", 
                 "region": "North East Atlantic"
             }, 
@@ -553,7 +635,9 @@ layers = [
                     "Biological Diversity", 
                     "Hydrographical Conditions"
                 ], 
+                "contact": "Stefano Ciavatta", 
                 "interval": "Monthly", 
+                "model": "POLCOMS-ERSEM", 
                 "niceName": "Euphotic depth", 
                 "region": "North East Atlantic"
             }, 
@@ -565,14 +649,18 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Stefano Ciavatta", 
                 "interval": "Monthly", 
+                "model": "POLCOMS-ERSEM", 
                 "niceName": "Primary Production", 
                 "region": "North East Atlantic"
             }, 
             "pCO2": {
                 "Confidence": "Medium", 
                 "Ecosystem_Element": "Gases", 
+                "contact": "Stefano Ciavatta", 
                 "interval": "Monthly", 
+                "model": "POLCOMS-ERSEM", 
                 "niceName": "pCO2", 
                 "region": "North East Atlantic"
             }
@@ -610,7 +698,9 @@ layers = [
             "Ammonia": {
                 "Confidence": "High", 
                 "Ecosystem_Element": "Nutrient", 
+                "contact": "Gianpiero Cossarini", 
                 "interval": "Monthly", 
+                "model": "OPATM-BFM-ECOPATH with ECOSIM", 
                 "niceName": "Ammonia", 
                 "region": "Mediterranean Sea"
             }, 
@@ -621,7 +711,9 @@ layers = [
                     "Eutrophication", 
                     "Foodwebs"
                 ], 
+                "contact": "Gianpiero Cossarini", 
                 "interval": "Monthly", 
+                "model": "OPATM-BFM-ECOPATH with ECOSIM", 
                 "niceName": "Primary Production", 
                 "region": "Mediterranean Sea"
             }, 
@@ -631,14 +723,18 @@ layers = [
                 "MSFD": [
                     "Eutrophication"
                 ], 
+                "contact": "Gianpiero Cossarini", 
                 "interval": "Monthly", 
+                "model": "OPATM-BFM-ECOPATH with ECOSIM", 
                 "niceName": "Nitrate", 
                 "region": "Mediterranean Sea"
             }, 
             "Oxygen": {
                 "Confidence": "Medium", 
                 "Ecosystem_Element": "Gases", 
+                "contact": "Gianpiero Cossarini", 
                 "interval": "Monthly", 
+                "model": "OPATM-BFM-ECOPATH with ECOSIM", 
                 "niceName": "Oxygen", 
                 "region": "Mediterranean Sea"
             }, 
@@ -648,28 +744,36 @@ layers = [
                 "MSFD": [
                     "Eutrophication"
                 ], 
+                "contact": "Gianpiero Cossarini", 
                 "interval": "Monthly", 
+                "model": "OPATM-BFM-ECOPATH with ECOSIM", 
                 "niceName": "Phosphate", 
                 "region": "Mediterranean Sea"
             }, 
             "R_NO3_PHOS": {
                 "Confidence": "Medium", 
                 "Ecosystem_Element": "Nutrient", 
+                "contact": "Gianpiero Cossarini", 
                 "interval": "Monthly", 
+                "model": "OPATM-BFM-ECOPATH with ECOSIM", 
                 "niceName": "Nitrate/Phosphate ratio", 
                 "region": "Mediterranean Sea"
             }, 
             "R_NO3_SIO4": {
                 "Confidence": "Medium", 
                 "Ecosystem_Element": "Nutrient", 
+                "contact": "Gianpiero Cossarini", 
                 "interval": "Monthly", 
+                "model": "OPATM-BFM-ECOPATH with ECOSIM", 
                 "niceName": "Nitrate/Silicate ratio", 
                 "region": "Mediterranean Sea"
             }, 
             "Silicate": {
                 "Confidence": "High", 
                 "Ecosystem_Element": "Nutrient", 
+                "contact": "Gianpiero Cossarini", 
                 "interval": "Monthly", 
+                "model": "OPATM-BFM-ECOPATH with ECOSIM", 
                 "niceName": "Silicate", 
                 "region": "Mediterranean Sea"
             }, 
@@ -680,14 +784,18 @@ layers = [
                     "Eutrophication", 
                     "Foodwebs"
                 ], 
+                "contact": "Gianpiero Cossarini", 
                 "interval": "Monthly", 
+                "model": "OPATM-BFM-ECOPATH with ECOSIM", 
                 "niceName": "Chlorophyll", 
                 "region": "Mediterranean Sea"
             }, 
             "TotphytoC": {
                 "Confidence": "High", 
                 "Ecosystem_Element": "Plankton", 
+                "contact": "Gianpiero Cossarini", 
                 "interval": "Monthly", 
+                "model": "OPATM-BFM-ECOPATH with ECOSIM", 
                 "niceName": "Phytoplankton", 
                 "region": "Mediterranean Sea"
             }, 
@@ -699,14 +807,18 @@ layers = [
                     "Foodwebs", 
                     "Commercial Fisheries"
                 ], 
+                "contact": "Gianpiero Cossarini", 
                 "interval": "Monthly", 
+                "model": "OPATM-BFM-ECOPATH with ECOSIM", 
                 "niceName": "Zooplankton", 
                 "region": "Mediterranean Sea"
             }, 
             "pCO2": {
                 "Confidence": "High", 
                 "Ecosystem_Element": "Gases", 
+                "contact": "Gianpiero Cossarini", 
                 "interval": "Monthly", 
+                "model": "OPATM-BFM-ECOPATH with ECOSIM", 
                 "niceName": "pCO2", 
                 "region": "Mediterranean Sea"
             }, 
@@ -716,7 +828,9 @@ layers = [
                 "MSFD": [
                     "Hydrographical Conditions"
                 ], 
+                "contact": "Gianpiero Cossarini", 
                 "interval": "Monthly", 
+                "model": "OPATM-BFM-ECOPATH with ECOSIM", 
                 "niceName": "Salinity", 
                 "region": "Mediterranean Sea"
             }, 
@@ -726,7 +840,9 @@ layers = [
                 "MSFD": [
                     "Hydrographical Conditions"
                 ], 
+                "contact": "Gianpiero Cossarini", 
                 "interval": "Monthly", 
+                "model": "OPATM-BFM-ECOPATH with ECOSIM", 
                 "niceName": "Temperature", 
                 "region": "Mediterranean Sea"
             }
@@ -769,7 +885,9 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Baris Salihoglu", 
                 "interval": "Monthly", 
+                "model": "POM-BIMS_ECO", 
                 "niceName": "Chlorophyll", 
                 "region": "Black Sea"
             }, 
@@ -779,7 +897,9 @@ layers = [
                 "MSFD": [
                     "Hydrographical Conditions"
                 ], 
+                "contact": "Baris Salihoglu", 
                 "interval": "Monthly", 
+                "model": "POM-BIMS_ECO", 
                 "niceName": "Mixed Layer Depth", 
                 "region": "Black Sea"
             }, 
@@ -790,7 +910,9 @@ layers = [
                     "Eutrophication", 
                     "Biological Diversity"
                 ], 
+                "contact": "Baris Salihoglu", 
                 "interval": "Monthly", 
+                "model": "POM-BIMS_ECO", 
                 "niceName": "Nitrate", 
                 "region": "Black Sea"
             }, 
@@ -802,7 +924,9 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Baris Salihoglu", 
                 "interval": "Monthly", 
+                "model": "POM-BIMS_ECO", 
                 "niceName": "Primary Production", 
                 "region": "Black Sea"
             }, 
@@ -812,7 +936,9 @@ layers = [
                 "MSFD": [
                     "Eutrophication"
                 ], 
+                "contact": "Baris Salihoglu", 
                 "interval": "Monthly", 
+                "model": "POM-BIMS_ECO", 
                 "niceName": "Oxygen", 
                 "region": "Black Sea"
             }, 
@@ -823,7 +949,9 @@ layers = [
                     "Eutrophication", 
                     "Biological Diversity"
                 ], 
+                "contact": "Baris Salihoglu", 
                 "interval": "Monthly", 
+                "model": "POM-BIMS_ECO", 
                 "niceName": "Phosphate", 
                 "region": "Black Sea"
             }, 
@@ -834,7 +962,9 @@ layers = [
                     "Biological Diversity", 
                     "Hydrographical Conditions"
                 ], 
+                "contact": "Baris Salihoglu", 
                 "interval": "Monthly", 
+                "model": "POM-BIMS_ECO", 
                 "niceName": "Salinity", 
                 "region": "Black Sea"
             }, 
@@ -845,7 +975,9 @@ layers = [
                     "Biological Diversity", 
                     "Hydrographical Conditions"
                 ], 
+                "contact": "Baris Salihoglu", 
                 "interval": "Monthly", 
+                "model": "POM-BIMS_ECO", 
                 "niceName": "Temperature", 
                 "region": "Black Sea"
             }, 
@@ -857,14 +989,18 @@ layers = [
                     "Biological Diversity", 
                     "Foodwebs"
                 ], 
+                "contact": "Baris Salihoglu", 
                 "interval": "Monthly", 
+                "model": "POM-BIMS_ECO", 
                 "niceName": "Zooplankton", 
                 "region": "Black Sea"
             }, 
             "pCO2w": {
                 "Confidence": "Medium", 
                 "Ecosystem_Element": "Gases", 
+                "contact": "Baris Salihoglu", 
                 "interval": "Monthly", 
+                "model": "POM-BIMS_ECO", 
                 "niceName": "pCO2", 
                 "region": "Black Sea"
             }
@@ -906,7 +1042,9 @@ layers = [
                     "Foodwebs", 
                     "Commercial Fisheries"
                 ], 
+                "contact": "Sonja van Leeuwen", 
                 "interval": "Monthly", 
+                "model": "POLCOMS-ERSEM-Sizebased model", 
                 "niceName": "Pelagic predator biomass", 
                 "region": "North East Atlantic"
             }
@@ -948,7 +1086,9 @@ layers = [
                     "Foodwebs", 
                     "Commercial Fisheries"
                 ], 
+                "contact": "Gianpiero Cossarini", 
                 "interval": "Monthly", 
+                "model": "OPATM-BFM-ECOPATH with ECOSIM", 
                 "niceName": "Anchovy", 
                 "region": "Mediterranean Sea"
             }, 
@@ -959,7 +1099,9 @@ layers = [
                     "Foodwebs", 
                     "Commercial Fisheries"
                 ], 
+                "contact": "Gianpiero Cossarini", 
                 "interval": "Monthly", 
+                "model": "OPATM-BFM-ECOPATH with ECOSIM", 
                 "niceName": "Sardine", 
                 "region": "Mediterranean Sea"
             }
@@ -1001,7 +1143,9 @@ layers = [
                     "Foodwebs", 
                     "Commercial Fisheries"
                 ], 
+                "contact": "Asbjorn Christensen", 
                 "interval": "Quarterly", 
+                "model": "SMS", 
                 "niceName": "Cod (age 2)", 
                 "region": "Baltic Sea"
             }

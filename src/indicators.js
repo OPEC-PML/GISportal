@@ -195,7 +195,12 @@ gisportal.events.bind('metadata.close', function() {
 
 
 gisportal.indicatorsPanel.getMetadata = function(layer, indicator, provider) {
+   console.log(indicator);
+   console.log(provider);;
+   console.log('given layer_obj = ', layer);
    $('.metadata_provider').html('');
+   $('.metadata_contact').html('');
+   $('.metadata_model_used').html('');
    $('.metadata_indicator').html('');
    var some = function(promises){
       var d = $.Deferred(), results = [];
@@ -210,11 +215,24 @@ gisportal.indicatorsPanel.getMetadata = function(layer, indicator, provider) {
        }
        return d.promise(); // return a promise
    };
+   indicator = indicator.replace('/','_','g');
 
-   var urls = [gisportal.middlewarePath+'/metadata/provider/' + provider, gisportal.middlewarePath+'/metadata/indicator/' + indicator].map($.get);
+   var urls = [gisportal.middlewarePath+'/metadata/provider/' + provider, gisportal.middlewarePath+'/metadata/indicator/' + encodeURIComponent(indicator)];
+
+   if(layer.model) {
+      urls.push(gisportal.middlewarePath+'/metadata/model_used/' + layer.model.replace(' ', '_', 'g'));
+   }
+   if(layer.contact) {
+      urls.push(gisportal.middlewarePath+'/metadata/contact/' + layer.contact.replace(' ', '_', 'g'));
+   }
+
+
+
+   urls = urls.map($.get);
 
    some(urls).then(function(results){
       for(var i = 0; i < results.length; i++) {
+         console.log(results[i]);
          if (results[i].indexOf('Provider') != -1) {
             $('.metadata_provider').html(results[i]);
 
@@ -236,7 +254,14 @@ gisportal.indicatorsPanel.getMetadata = function(layer, indicator, provider) {
                '</p>';
             $('.metadata_provider').append(confidence);
 
-         }else {
+         }
+         else if (results[i].indexOf('Contact') != -1) {
+            $('.metadata_contact').html(results[i]);
+         }
+         else if (results[i].indexOf('Models used') != -1) {
+            $('.metadata_model_used').html(results[i]);
+         }
+         else{
             $('.metadata_indicator').html(results[i]);
          }
       }

@@ -6,15 +6,11 @@ DMI provides meteorological, oceanographic and related services for the communit
 
 The Baltic is a semi-enclosed, brackish water sea. The Danish Straits connect the Baltic with the North Sea. The Baltic area size is ca. 410,000 square kilometers and the average depth is ca. 55 meters. The salinity varies from the average salinity in the North Sea to 2-3 PSU in the northern Bothnian Bay.
 
-**Contact:** Zhenwen Wan [zw@dmi.dk](mailto:zw@dmi.dk)
-
-
 
 **Simulation period:**
 Hindcast: Jan 1990 - May 2012<br>
 Rapid Environmental Assessment (rolling 3 month hindcast): Jun 2012 - Apr 2014
 
-**Models used:** <a href="/resources/Modelling_in_the_Baltic_Sea.pdf" target="_blank">HBM-ERGOM</a>
 
 **Assimilation method:** Ensemble Optimal Interpolation (EnOI)
 

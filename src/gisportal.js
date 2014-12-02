@@ -324,6 +324,8 @@ gisportal.createOpLayers = function() {
          "tags": indicator.tags,
          "moreProviderInfo" : indicator.MoreProviderInfo,
          "moreIndicatorInfo" : indicator.MoreIndicatorInfo,
+         "model" : indicator.tags.model || null,
+         "contact" : indicator.tags.contact || null
       };
 
       var layer = new gisportal.layer( layerOptions );
