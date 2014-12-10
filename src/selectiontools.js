@@ -8,33 +8,88 @@
 
 gisportal.selectionTools = {};
 
-gisportal.selectionTools.init = function()  {
+gisportal.selectionTools.init = function() {
    gisportal.selectionTools.initDOM();
    var vectorLayer = new OpenLayers.Layer.Vector('POI Layer', {
 
-      style : {
-         strokeColor : 'white',
-         fillColor : 'green',
-         strokeWidth : 2,
-         fillOpacity : 0.3,
+      style: {
+         strokeColor: 'white',
+         fillColor: 'green',
+         strokeWidth: 2,
+         fillOpacity: 0.3,
          pointRadius: 5
       },
-      preFeatureInsert : function(feature) {
+      preFeatureInsert: function(feature) {
          this.removeAllFeatures();
       },
-      onFeatureInsert : function(feature) {
+      onFeatureInsert: function(feature) {
          gisportal.selectionTools.ROIAdded(feature);
       },
-      rendererOptions: { zIndexing: true },
+      rendererOptions: {
+         zIndexing: true
+      },
       renderers: ['Canvas', 'VML']
    });
-   
+   vectorLayer.events.on({
+      'featureover': function(evt) {
+
+         var v = evt.feature;
+         if (!v.popid) {
+            console.log(v.geometry);
+            var coord = new OpenLayers.LonLat(v.geometry.bounds.right, v.geometry.bounds.top);
+            var pixels = map.getPixelFromLonLat(coord);
+            console.log(pixels);
+            var _id = Date.now();
+            var pop = $('<div>', {
+               id: _id
+            }).css({
+               position: "relative",
+               top: pixels.y,
+               left: pixels.x,
+
+            }).addClass('marker_close').append($('<p>X</p>').css({
+               "font-size": "3em"
+            })).on('click', function(e) {
+               $(this).remove();
+               vectorLayer.removeFeatures(v);
+
+               console.log('i clicked the thing"');
+            });
+            $('body').append(pop);
+            v.popid = _id;
+
+         } // end if
+
+      },
+      'featureout': function(evt) {
+         var feature = evt.feature;
+         console.log(feature.popid);
+         setTimeout(function() {
+            console.log('removing :' + feature.popid);
+            $('#' + feature.popid).remove();
+            delete feature.popid;
+         }, 2000);
+      },
+      "featureselected": function(e) {
+         //here I need to get XY
+         //something like the code below 
+         //(it doesn't work but clearly explains what my idea is)           
+         console.log(e.xy);
+
+      }
+   });
    vectorLayer.controlID = "poiLayer";
    vectorLayer.displayInLayerSwitcher = false;
 
    map.addLayer(vectorLayer);
 
-   gisportal.mapControls.box = new OpenLayers.Control.DrawFeature(vectorLayer, OpenLayers.Handler.RegularPolygon, {handlerOptions:{sides: 4, irregular: true, persist: false }});
+   gisportal.mapControls.box = new OpenLayers.Control.DrawFeature(vectorLayer, OpenLayers.Handler.RegularPolygon, {
+      handlerOptions: {
+         sides: 4,
+         irregular: true,
+         persist: false
+      }
+   });
 
    gisportal.mapControls.polygon = new OpenLayers.Control.DrawFeature(vectorLayer, OpenLayers.Handler.Polygon, {
       handlerOptions: {
@@ -43,20 +98,20 @@ gisportal.selectionTools.init = function()  {
    });
 
    gisportal.mapControls.line = new OpenLayers.Control.DrawFeature(vectorLayer, OpenLayers.Handler.Path, {
-      handlerOption : {
-         persist : false
+      handlerOption: {
+         persist: false
       }
    });
    gisportal.wkt = new OpenLayers.Format.WKT();
 
    map.addControls([gisportal.mapControls.box, gisportal.mapControls.polygon, gisportal.mapControls.line]);
- 
+
 };
 
-gisportal.selectionTools.initDOM = function()  {
+gisportal.selectionTools.initDOM = function() {
    $('.js-indicators').on('change', '.js-coordinates', gisportal.selectionTools.updateROI);
 
-   $('.js-indicators').on('click', '.js-draw-box', function()  {
+   $('.js-indicators').on('click', '.js-draw-box', function() {
       gisportal.selectionTools.toggleTool('box');
    });
    $('.js-indicators').on('click', '.js-draw-polygon', function() {
@@ -87,20 +142,19 @@ gisportal.selectionTools.getActiveControl = function() {
    return activeControl;
 };
 
-gisportal.selectionTools.toggleTool = function(tool)  {
+gisportal.selectionTools.toggleTool = function(tool) {
    var vectorLayer = map.layers[map.layers.length - 1];
 
    var isActive = false;
-   for (var key in gisportal.mapControls)  {
+   for (var key in gisportal.mapControls) {
       var control = gisportal.mapControls[key];
       if (key === tool) {
          control.activate();
          isActive = true;
-      }
-      else  {
+      } else {
          control.deactivate();
       }
-   } 
+   }
 
    if (!isActive) {
       console.log('There were no tools toggled, so pan has been activated');
@@ -111,7 +165,7 @@ gisportal.selectionTools.toggleTool = function(tool)  {
 
 };
 
-gisportal.selectionTools.updateROI = function()  {
+gisportal.selectionTools.updateROI = function() {
    var values = $(this).val().split(',');
    values[0] = gisportal.utils.clamp(values[0], -180, 180); // Long
    values[2] = gisportal.utils.clamp(values[2], -180, 180); // Long
@@ -119,7 +173,7 @@ gisportal.selectionTools.updateROI = function()  {
    values[3] = gisportal.utils.clamp(values[3], -90, 90); // Lat
    $(this).val(values[0] + ',' + values[1] + ',' + values[2] + ',' + values[3]);
    var feature = new OpenLayers.Feature.Vector(new OpenLayers.Bounds(values[0], values[1], values[2], values[3]).toGeometry());
-   
+
    // map.layers corrosponds to layers of the map,
    // such as base layer and vector, not indicators on the map
    var vectorLayer = map.layers[map.layers.length - 1];
@@ -127,11 +181,11 @@ gisportal.selectionTools.updateROI = function()  {
    var features = vectorLayer.features;
    if (features[0]) vectorLayer.features[0].destroy();
    vectorLayer.features[0] = feature;
-   vectorLayer.redraw(); 
+   vectorLayer.redraw();
 };
 
 gisportal.currentSelectedRegion = "";
-gisportal.selectionTools.ROIAdded = function(feature)  {
+gisportal.selectionTools.ROIAdded = function(feature) {
    var feature_type = map.ROI_Type;
    var bounds;
    if (feature_type === "polygon") {
@@ -140,22 +194,21 @@ gisportal.selectionTools.ROIAdded = function(feature)  {
       console.log(wkt_feature);
       bounds = feature.geometry.bounds;
 
-      wkt_feature = wkt_feature.replace(/[\d\.]+/g, function(num){
-         return Math.round(num * 1000 ) / 1000;
+      wkt_feature = wkt_feature.replace(/[\d\.]+/g, function(num) {
+         return Math.round(num * 1000) / 1000;
       });
 
       gisportal.currentSelectedRegion = wkt_feature;
       $('.js-coordinates').val(wkt_feature);
       $('.bbox-info').toggleClass('hidden', false);
-   }
-   else if(feature_type === 'line') {
+   } else if (feature_type === 'line') {
       console.log('generation line WKT');
       var wkt_feature = gisportal.wkt.write(feature);
       console.log(wkt_feature);
       bounds = feature.geometry.bounds;
 
-      wkt_feature = wkt_feature.replace(/[\d\.]+/g, function(num){
-         return Math.round(num * 1000 ) / 1000;
+      wkt_feature = wkt_feature.replace(/[\d\.]+/g, function(num) {
+         return Math.round(num * 1000) / 1000;
       });
 
       gisportal.currentSelectedRegion = wkt_feature;
@@ -169,11 +222,11 @@ gisportal.selectionTools.ROIAdded = function(feature)  {
          coords += bounds.bottom + ",";
          coords += bounds.right + ",";
          coords += bounds.top;
-         
-         coords = coords.replace(/[\d\.]+/g, function(num){
-            return Math.round(num * 1000 ) / 1000;
+
+         coords = coords.replace(/[\d\.]+/g, function(num) {
+            return Math.round(num * 1000) / 1000;
          });
-      
+
          gisportal.currentSelectedRegion = coords;
          $('.js-coordinates').val(coords);
          $('.bbox-info').toggleClass('hidden', false);
@@ -181,52 +234,58 @@ gisportal.selectionTools.ROIAdded = function(feature)  {
    }
    this.toggleTool('pan'); // So that people don't misclick
 
-  
-   
+
+
    // Get the geometry of the drawn feature
    var geom = new OpenLayers.Geometry();
    geom = feature.geometry;
 
    var area_deg, area_km, height_deg, width_deg, height_km, width_km, radius_deg, ctrLat, ctrLon = 0;
 
-   if(feature_type !== '' && feature_type != 'point' && bounds) {
+   if (feature_type !== '' && feature_type != 'point' && bounds) {
       area_deg = geom.getArea();
-      area_km = (geom.getGeodesicArea()*1e-6);
+      area_km = (geom.getGeodesicArea() * 1e-6);
       height_deg = bounds.getHeight();
       width_deg = bounds.getWidth();
       // Note - to get values in true ellipsoidal distances, we need to use Vincenty functions for measuring ellipsoidal
       // distances instead of planar distances (http://www.movable-type.co.uk/scripts/latlong-vincenty.html)
       ctrLon = geom.getCentroid().x;
       ctrLat = geom.getCentroid().y;
-      height_km = OpenLayers.Util.distVincenty(new OpenLayers.LonLat(ctrLon,bounds.top),new OpenLayers.LonLat(ctrLon,bounds.bottom));
-      width_km = OpenLayers.Util.distVincenty(new OpenLayers.LonLat(bounds.left,ctrLat),new OpenLayers.LonLat(bounds.right,ctrLat));
-      radius_deg = ((bounds.getWidth() + bounds.getHeight())/4);
+      height_km = OpenLayers.Util.distVincenty(new OpenLayers.LonLat(ctrLon, bounds.top), new OpenLayers.LonLat(ctrLon, bounds.bottom));
+      width_km = OpenLayers.Util.distVincenty(new OpenLayers.LonLat(bounds.left, ctrLat), new OpenLayers.LonLat(bounds.right, ctrLat));
+      radius_deg = ((bounds.getWidth() + bounds.getHeight()) / 4);
 
       var pretty_height_km, pretty_width_km, pretty_area_km
-      // because not all browsers support Intl.NumberFormat ...
+         // because not all browsers support Intl.NumberFormat ...
       try {
-         pretty_height_km = new Intl.NumberFormat("en-GB", { maximumFractionDigits: 2}).format(height_km);
-      } catch(e) {
+         pretty_height_km = new Intl.NumberFormat("en-GB", {
+            maximumFractionDigits: 2
+         }).format(height_km);
+      } catch (e) {
          pretty_height_km = height_km.toPrecision(4);
       }
       try {
-         pretty_width_km = new Intl.NumberFormat("en-GB", { maximumFractionDigits: 2}).format(width_km);
-      } catch(e) {
+         pretty_width_km = new Intl.NumberFormat("en-GB", {
+            maximumFractionDigits: 2
+         }).format(width_km);
+      } catch (e) {
          pretty_width_km = width_km.toPrecision(4);
       }
       try {
-         pretty_area_km = new Intl.NumberFormat("en-GB", { maximumFractionDigits: 0}).format(area_km);
-      } catch(e) {
+         pretty_area_km = new Intl.NumberFormat("en-GB", {
+            maximumFractionDigits: 0
+         }).format(area_km);
+      } catch (e) {
          pretty_area_km = area_km.toPrecision(4);
       }
-      
+
    }
-  
-   switch(feature_type) {
-      case 'box': 
-         $('.js-bbox-width').html(pretty_width_km+' km');
-         $('.js-bbox-height').html(pretty_height_km +' km');
-         $('.js-bbox-area').html(pretty_area_km +' km<sup>2</sup>');
+
+   switch (feature_type) {
+      case 'box':
+         $('.js-bbox-width').html(pretty_width_km + ' km');
+         $('.js-bbox-height').html(pretty_height_km + ' km');
+         $('.js-bbox-area').html(pretty_area_km + ' km<sup>2</sup>');
          break;
       case 'point':
          // set the .bbox-info div to show lat/long
@@ -244,5 +303,4 @@ gisportal.selectionTools.ROIAdded = function(feature)  {
 
 
 
-   
 };
