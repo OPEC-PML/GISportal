@@ -24,6 +24,7 @@ gisportal.selectionTools.init = function() {
       },
       onFeatureInsert: function(feature) {
          gisportal.selectionTools.ROIAdded(feature);
+         gisportal.selectionTools.closeAllHelp();
       },
       rendererOptions: {
          zIndexing: true
@@ -43,16 +44,16 @@ gisportal.selectionTools.init = function() {
             var pop = $('<div>', {
                id: _id
             }).css({
-               position: "relative",
+               position: "absolute",
                top: pixels.y,
                left: pixels.x,
 
-            }).addClass('marker_close').append($('<p>X</p>').css({
-               "font-size": "3em"
+            }).addClass('marker_close').append($('<span></span>').addClass('btn icon-filled-arrow-delete-1 icon-btn panel-icon-tab right-icon').css({
+               "font-size": "2em"
             })).on('click', function(e) {
                $(this).remove();
                vectorLayer.removeFeatures(v);
-
+               $('.js-coordinates').val('');
                console.log('i clicked the thing"');
             });
             $('body').append(pop);
@@ -68,7 +69,7 @@ gisportal.selectionTools.init = function() {
             console.log('removing :' + feature.popid);
             $('#' + feature.popid).remove();
             delete feature.popid;
-         }, 2000);
+         }, 4000);
       },
       "featureselected": function(e) {
          //here I need to get XY
@@ -112,15 +113,25 @@ gisportal.selectionTools.initDOM = function() {
    $('.js-indicators').on('change', '.js-coordinates', gisportal.selectionTools.updateROI);
 
    $('.js-indicators').on('click', '.js-draw-box', function() {
+      //gisportal.selectionTools.polygonBoxHelp();
       gisportal.selectionTools.toggleTool('box');
    });
    $('.js-indicators').on('click', '.js-draw-polygon', function() {
-      console.log('clicked th epolygon draw');
+      gisportal.selectionTools.polygonHelp();
       gisportal.selectionTools.toggleTool('polygon');
    });
    $('.js-indicators').on('click', '.js-draw-line', function() {
       console.log('clicked the line draw');
       gisportal.selectionTools.toggleTool('line');
+   });
+
+   $('body').on('click', '#bbox_help > #closePolyHelp', function(ev) {
+      console.log('clicked 1');
+      gisportal.selectionTools.closeAllHelp('BBox');
+   });
+   $('body').on('click', '#polygon_help > #closePolyHelp', function(ev) {
+      console.log('clicked 2');
+      gisportal.selectionTools.closeAllHelp('Poly');
    });
 };
 
@@ -130,6 +141,56 @@ gisportal.selectionTools.toggleBboxDisplay = function() {
 
 
 
+};
+
+gisportal.selectionTools.helpIsActive = false;
+
+
+
+gisportal.selectionTools.helpRequiredBBox = function() {
+   return gisportal.storage.get('helpRequiredBBox', true);
+};
+
+gisportal.selectionTools.helpRequiredPoly = function() {
+   return gisportal.storage.get('helpRequiredPoly', true);
+};
+
+// currently not used as not required for OPEC
+gisportal.selectionTools.polygonBoxHelp = function() {
+
+   if (gisportal.selectionTools.helpRequiredBBox()) {
+      if (gisportal.selectionTools.helpIsActive) {
+         gisportal.selectionTools.closeAllHelp('BBox');
+      }
+      gisportal.selectionTools.helpIsActive = true;
+      var renderedTooltip = gisportal.templates['bbox-help']();
+      $('body').append($(renderedTooltip));
+
+
+   }
+};
+
+gisportal.selectionTools.polygonHelp = function() {
+   if (gisportal.selectionTools.helpRequiredPoly()) {
+
+      if (gisportal.selectionTools.helpIsActive) {
+         gisportal.selectionTools.closeAllHelp('Poly');
+      }
+      gisportal.selectionTools.helpIsActive = true;
+      var renderedTooltip = gisportal.templates['polygon-help']();
+      $('body').append($(renderedTooltip));
+
+   }
+};
+
+gisportal.selectionTools.closeAllHelp = function(type) {
+   if (type) {
+      if ($('#noShow')[0].checked) {
+         gisportal.storage.set('helpRequired' + type, false);
+      }
+   }
+   gisportal.selectionTools.helpIsActive = false;
+   $('.polygon_help').remove();
 };
 
 gisportal.selectionTools.getActiveControl = function() {
