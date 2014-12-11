@@ -1146,7 +1146,7 @@ layers = [
                 "contact": "Asbjorn Christensen", 
                 "interval": "Quarterly", 
                 "model": "SMS", 
-                "niceName": "Cod (age 2)", 
+                "niceName": "Juvenile Cod", 
                 "region": "Baltic Sea"
             }
         }, 
