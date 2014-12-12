@@ -1,0 +1,4 @@
+<div id="bbox_help" class="polygon_help"><p>Instructions for creating a Bounding Box <ul><li>Left click with your mouse at one of the corners of the desired bounding box</li><li>Hold left mouse button down and drag until the bounding box is the size required</li><li>Release left mouse button</li></ul></p>
+
+
+<label for="noShow"><input type="checkbox" id="noShow"/> Do not show this again</label><button id="closePolyHelp" class="brand small analysis-make-new-series js-make-new-plot pull-right">Close</button></div>

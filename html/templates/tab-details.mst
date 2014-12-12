@@ -17,12 +17,12 @@
          <label>{{round exBoundingBox.WestBoundLongitude 2}}</label>   W 
       </td></tr>
       <tr><td>Date range</td><td>{{firstDate}} to {{lastDate}}</td></tr>
-      {{#if providerDetails.email}}
+      {{!-- {{#if providerDetails.email}}
          <tr>
             <td>Email</td>
             <td><a target="_blank" href="mailto:{{providerDetails.email}}">{{providerDetails.email}}</a></td>
          </tr>
-      {{/if}}
+      {{/if}} --}}
       {{#if moreIndicatorInfo}}
       <tr><td></td><td><a id="show_more" href="#">more information</a></td></tr>
       {{else}}
