@@ -21,6 +21,7 @@ ERROR_LEVEL = "W"
 
 
 # section to define root folder for markdown metadata files
-MARKDOWN_ROOT = "/users/rsg/olcl/scratch/portal_opec/markdown"
+#MARKDOWN_ROOT = "/users/rsg/olcl/scratch/portal_opec/markdown"
+MARKDOWN_ROOT = "/home/rsgadmin/portal.marineopec.eu/portal/markdown"
 
 MARKDOWN_DIRS = ['provider', 'indicator', 'contact', 'model_used']
