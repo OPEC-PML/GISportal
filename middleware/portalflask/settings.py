@@ -5,7 +5,8 @@ JSON_SORT_KEYS = False
 
 SECRET_KEY = 'p7i0-22@0eheas^kzw3=1qfug_x+5)5)8u4v=2iyiwwx1eh)37'
 
-OPENID_FOLDER = '/users/rsg/olcl/scratch/portal_opec/html/cache/openID'
+#OPENID_FOLDER = '/users/rsg/olcl/scratch/portal_opec/html/cache/openID'
+OPENID_FOLDER = '/home/rsgadmin/cache/projects/portal.marineopec.eu/openID'
 DATABASE_URI = 'sqlite:///' + OPENID_FOLDER + '/user_storage.db'
 
 
