@@ -1035,6 +1035,19 @@ layers = [
     }, 
     {
         "indicators": {
+            "LFI": {
+                "Confidence": "Low", 
+                "Ecosystem_Element": "Fish", 
+                "MSFD": [
+                    "Foodwebs", 
+                    "Commercial Fisheries"
+                ], 
+                "contact": "Sonja van Leeuwen", 
+                "interval": "Monthly", 
+                "model": "POLCOMS-ERSEM-Sizebased model", 
+                "niceName": "Large Fish Indicator", 
+                "region": "North East Atlantic"
+            }, 
             "U": {
                 "Confidence": "Low", 
                 "Ecosystem_Element": "Fish", 
@@ -1046,6 +1059,19 @@ layers = [
                 "interval": "Monthly", 
                 "model": "POLCOMS-ERSEM-Sizebased model", 
                 "niceName": "Pelagic predator biomass", 
+                "region": "North East Atlantic"
+            }, 
+            "V": {
+                "Confidence": "Low", 
+                "Ecosystem_Element": "Fish", 
+                "MSFD": [
+                    "Foodwebs", 
+                    "Commercial Fisheries"
+                ], 
+                "contact": "Sonja van Leeuwen", 
+                "interval": "Monthly", 
+                "model": "POLCOMS-ERSEM-Sizebased model", 
+                "niceName": "Detritivore biomass", 
                 "region": "North East Atlantic"
             }
         }, 
@@ -1136,7 +1162,20 @@ layers = [
     }, 
     {
         "indicators": {
-            "biomass_cod_2": {
+            "biomass_cod_adult": {
+                "Confidence": "Medium", 
+                "Ecosystem_Element": "Fish", 
+                "MSFD": [
+                    "Foodwebs", 
+                    "Commercial Fisheries"
+                ], 
+                "contact": "Asbjorn Christensen", 
+                "interval": "Quarterly", 
+                "model": "SMS", 
+                "niceName": "Adult Cod", 
+                "region": "Baltic Sea"
+            },
+            "biomass_cod_juvenile": {
                 "Confidence": "Medium", 
                 "Ecosystem_Element": "Fish", 
                 "MSFD": [
@@ -1147,6 +1186,58 @@ layers = [
                 "interval": "Quarterly", 
                 "model": "SMS", 
                 "niceName": "Juvenile Cod", 
+                "region": "Baltic Sea"
+            },
+            "biomass_herring_adult": {
+                "Confidence": "Medium", 
+                "Ecosystem_Element": "Fish", 
+                "MSFD": [
+                    "Foodwebs", 
+                    "Commercial Fisheries"
+                ], 
+                "contact": "Asbjorn Christensen", 
+                "interval": "Quarterly", 
+                "model": "SMS", 
+                "niceName": "Adult Herring", 
+                "region": "Baltic Sea"
+            },
+            "biomass_herring_juvenile": {
+                "Confidence": "Medium", 
+                "Ecosystem_Element": "Fish", 
+                "MSFD": [
+                    "Foodwebs", 
+                    "Commercial Fisheries"
+                ], 
+                "contact": "Asbjorn Christensen", 
+                "interval": "Quarterly", 
+                "model": "SMS", 
+                "niceName": "Juvenile Herring", 
+                "region": "Baltic Sea"
+            },
+            "biomass_sprat_adult": {
+                "Confidence": "Medium", 
+                "Ecosystem_Element": "Fish", 
+                "MSFD": [
+                    "Foodwebs", 
+                    "Commercial Fisheries"
+                ], 
+                "contact": "Asbjorn Christensen", 
+                "interval": "Quarterly", 
+                "model": "SMS", 
+                "niceName": "Adult Sprat", 
+                "region": "Baltic Sea"
+            },
+            "biomass_sprat_juvenile": {
+                "Confidence": "Medium", 
+                "Ecosystem_Element": "Fish", 
+                "MSFD": [
+                    "Foodwebs", 
+                    "Commercial Fisheries"
+                ], 
+                "contact": "Asbjorn Christensen", 
+                "interval": "Quarterly", 
+                "model": "SMS", 
+                "niceName": "Juvenile Sprat", 
                 "region": "Baltic Sea"
             }
         }, 
