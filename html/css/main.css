@@ -236,3 +236,14 @@ input[type="text"]  {
   text-align: right;
   margin-top: 12px;
 }
+
+
+
+@media( max-width: 800px ){
+  .panel{
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+  } 
+}
+
