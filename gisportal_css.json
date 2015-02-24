@@ -3,6 +3,7 @@
    "files": [
       "html/css/reset.css",
       "html/css/fonts.css",
+      "html/css/alerts.css",
       "html/css/streamline.css",
       "html/css/streamline-filled-in.css",
       "html/css/type.css",
@@ -29,6 +30,7 @@
       "html/css/history.css",
       "html/css/mapcontrols.css",
       "html/js-libs/tooltipster/css/tooltipster.css",
-      "html/js-libs/tooltipster/css/themes/tooltipster-shadow.css"
+      "html/js-libs/tooltipster/css/themes/tooltipster-shadow.css",
+      "html/css/override.css"
    ]
 }
