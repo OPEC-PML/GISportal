@@ -9,3 +9,4 @@ html/css/GISPortal.css
 config/*
 .DS_Store
 apache_log
+logs
