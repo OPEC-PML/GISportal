@@ -5,5 +5,5 @@ RewriteCond %{REQUEST_URI} ^/thredds.*
 RewriteRule thredds(.*) https://vortices.npm.ac.uk/thredds$1 [P]
 
 RewriteCond %{REQUEST_URI} ^/plotting/.*
-RewriteRule plotting/(.*) http://localhost:8110/$1 [P]
+RewriteRule plotting/(.*) http://localhost:8001/$1 [P]
 
